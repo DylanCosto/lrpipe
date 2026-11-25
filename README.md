@@ -1,4 +1,9 @@
-# lrpipe
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/lrpipe-dark.svg">
+    <img src="assets/lrpipe-light.svg" alt="lrpipe" width="560">
+  </picture>
+</p>
 
 An all-in-one germline pipeline for long reads, from FASTQ to VCF.
 
