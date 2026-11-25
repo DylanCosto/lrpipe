@@ -1,0 +1,5 @@
+cand chr1 0.5 0.5 ont 10000 none
+cand chr1 0.7 0.1 ont 4 none
+cand chr1 -0.25 2 ont 10000 none
+cand chr1 0 0 ont 10000 none
+cand chr2 1 1 ilmn 10000 none

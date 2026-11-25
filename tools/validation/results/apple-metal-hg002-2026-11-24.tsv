@@ -1,0 +1,13 @@
+reads	caller	run	wall_seconds	pass_calls	pass_calls_shared_with_lrpipe	vcf_records_in_region	phased_vcf_records_in_region	gvcf_records_in_region
+HiFi	lrpipe-metal	A	3.148583	3772	3772	3775	3775	11263
+HiFi	clair3-2.0.3-cpu	A	52.534850	3773	3769	3776	3776	11242
+HiFi	clair3-local-mps	A	55.956008	3773	3769	3776	3776	11242
+HiFi	clair3-local-mps	B	53.100251	3773	3769	3776	3776	11242
+HiFi	clair3-2.0.3-cpu	B	52.659610	3773	3769	3776	3776	11242
+HiFi	lrpipe-metal	B	3.166955	3772	3772	3775	3775	11263
+ONT	lrpipe-metal	A	1.932486	3640	3640	3681	3681	24186
+ONT	clair3-2.0.3-cpu	A	46.104285	3640	3640	3682	3682	24176
+ONT	clair3-local-mps	A	42.202840	3640	3640	3682	3682	24176
+ONT	clair3-local-mps	B	42.602965	3640	3640	3682	3682	24176
+ONT	clair3-2.0.3-cpu	B	46.406453	3640	3640	3682	3682	24176
+ONT	lrpipe-metal	B	1.936416	3640	3640	3681	3681	24186

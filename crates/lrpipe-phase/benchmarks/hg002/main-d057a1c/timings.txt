@@ -1,0 +1,25 @@
+# /usr/bin/time output at d057a1c. Only the phase -t 24 runs ran alone (one unrelated
+# single-threaded job was running); the rest ran concurrently with each other (see README).
+pacbio: phase whatshap-rs main-t24: 472.19 s wall, 5245.86 s user, 1127% CPU, 13697816 KB max RSS
+pacbio: stats wh: 179.82 s wall, 150.81 s user, 85% CPU, 1262984 KB max RSS
+pacbio: compare wh: 292.01 s wall, 229.86 s user, 80% CPU, 3583364 KB max RSS
+pacbio: stats rs: 45.37 s wall, 29.84 s user, 67% CPU, 231748 KB max RSS
+pacbio: compare rs: 81.26 s wall, 64.47 s user, 81% CPU, 2728620 KB max RSS
+pacbio: phase whatshap-rs main-t8: 1383.18 s wall, 5171.59 s user, 381% CPU, 6427972 KB max RSS
+pacbio: haplotag whatshap-rs main-t24: 4944.25 s wall, 12622.60 s user, 260% CPU, 4246972 KB max RSS
+illumina: phase whatshap-rs main-t24: 263.79 s wall, 3165.65 s user, 1246% CPU, 26063252 KB max RSS
+illumina: stats wh: 110.19 s wall, 96.14 s user, 88% CPU, 976536 KB max RSS
+illumina: compare wh: 212.04 s wall, 180.04 s user, 86% CPU, 2489916 KB max RSS
+illumina: stats rs: 29.36 s wall, 23.34 s user, 81% CPU, 144600 KB max RSS
+illumina: compare rs: 70.31 s wall, 56.38 s user, 81% CPU, 1892572 KB max RSS
+illumina: phase whatshap-rs main-t8: 877.74 s wall, 3024.85 s user, 355% CPU, 10575776 KB max RSS
+illumina: haplotag whatshap-rs main-t24: 1441.65 s wall, 7432.60 s user, 545% CPU, 10588164 KB max RSS
+ont: phase whatshap-rs main-t24: 525.70 s wall, 6199.66 s user, 1203% CPU, 12860384 KB max RSS
+ont: stats wh: 105.37 s wall, 92.88 s user, 89% CPU, 973736 KB max RSS
+ont: compare wh: 225.43 s wall, 182.94 s user, 83% CPU, 2539112 KB max RSS
+ont: stats rs: 33.29 s wall, 23.32 s user, 71% CPU, 128428 KB max RSS
+ont: compare rs: 70.75 s wall, 56.57 s user, 81% CPU, 1896564 KB max RSS
+ont: phase whatshap-rs main-t8: 1595.79 s wall, 6143.59 s user, 394% CPU, 5721548 KB max RSS
+ont: haplotag whatshap-rs main-t24: 6143.61 s wall, 18612.17 s user, 310% CPU, 3808548 KB max RSS
+all three: compare3 wh: 505.00 s wall, 408.34 s user, 82% CPU, 5428032 KB max RSS
+all three: compare3 rs: 122.47 s wall, 112.50 s user, 93% CPU, 3786636 KB max RSS

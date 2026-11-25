@@ -1,0 +1,8 @@
+whatshap-rs 0.1.0
+whatshap 2.8
+phase -t 1: vcf identical, read list identical
+phase -t 8: vcf identical, read list identical
+phase -t 24: vcf identical, read list identical
+haplotag -t 1: records identical (68fff2c905203a71db17e95136481efb), list identical
+haplotag -t 8: records identical (68fff2c905203a71db17e95136481efb), list identical
+haplotag -t 24: records identical (68fff2c905203a71db17e95136481efb), list identical

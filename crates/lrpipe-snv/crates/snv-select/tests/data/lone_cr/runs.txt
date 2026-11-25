@@ -1,0 +1,4 @@
+phase 0.7
+full 0.7 0.1 EMPTY
+het chr1
+cand chr1 0.7 0.1 ont 10000 latest

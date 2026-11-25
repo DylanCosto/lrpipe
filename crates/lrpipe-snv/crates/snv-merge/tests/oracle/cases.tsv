@@ -1,0 +1,36 @@
+# name	input dir	contigs file	cmd file (or None)	reference (or -)	extra SortVcf flags (appended after the pipeline defaults)
+default	single	single.CONTIGS	CMD	REF	
+pileup_noref	single	single.CONTIGS	CMD	REF	--pileup_only True
+pileup_ref	single	single.CONTIGS	CMD	REF	--pileup_only True --print_ref_calls True
+hap_precise	single	single.CONTIGS	CMD	REF	--pileup_only True --haploid_precise True
+hap_sensitive	single	single.CONTIGS	CMD	REF	--pileup_only True --haploid_sensitive True --print_ref_calls True
+gpu_default	single	single.CONTIGS	CMD	REF	--use_gpu True
+gpu_precise	single	single.CONTIGS	CMD	REF	--use_gpu True --pileup_only True --haploid_precise True --print_ref_calls True
+gpu_both_haploid	single	single.CONTIGS	CMD	REF	--use_gpu True --pileup_only True --haploid_precise True --haploid_sensitive True
+gpu_sensitive	single	single.CONTIGS	CMD	REF	--use_gpu True --pileup_only True --haploid_sensitive True
+gpu_qual	single	single.CONTIGS	CMD	REF	--use_gpu True --pileup_only True --qual 20
+gpu_qual0	single	single.CONTIGS	CMD	REF	--use_gpu True --pileup_only True --qual 0 --print_ref_calls True
+multi_default	multi	multi.CONTIGS	CMD	REF	
+multi_gpu	multi	multi.CONTIGS	CMD	REF	--use_gpu True
+multi_male	multi	multi.CONTIGS	CMD	REF	--pileup_only True --gender male
+multi_male_ref	multi	multi.CONTIGS	CMD	REF	--pileup_only True --gender male --print_ref_calls True
+multi_male_gpu	multi	multi.CONTIGS	CMD	REF	--use_gpu True --pileup_only True --gender male --print_ref_calls True
+multi_male_par_gpu	multi	multi.CONTIGS	CMD	REF	--use_gpu True --pileup_only True --gender male --par_regions_bed par.bed --print_ref_calls True
+multi_male_pargz	multi	multi.CONTIGS	CMD	REF	--pileup_only True --gender male --par_regions_bed par.bed.gz
+multi_male_pargz_gpu	multi	multi.CONTIGS	CMD	REF	--use_gpu True --pileup_only True --gender male --par_regions_bed par.bed.gz
+multi_female_gpu	multi	multi.CONTIGS	CMD	REF	--use_gpu True --pileup_only True --gender female --par_regions_bed par.bed.gz
+multi_male_par_missing_gpu	multi	multi.CONTIGS	CMD	REF	--use_gpu True --pileup_only True --gender male --par_regions_bed missing.bed
+empty_prefix	noprefix	single.CONTIGS	CMD	REF	
+empty_prefix_noref	noprefix	single.CONTIGS	None	-	
+headers_only	headers	single.CONTIGS	CMD	REF	
+empty_files	emptyfiles	single.CONTIGS	CMD	REF	
+malformed	malformed	malformed.CONTIGS	CMD	REF	--pileup_only True --print_ref_calls True
+malformed_gpu	malformed	malformed.CONTIGS	CMD	REF	--use_gpu True
+malformed_nocheck	malformed	malformed.CONTIGS	CMD	REF	--check_malformed_records False
+nocmd	nocmd	single.CONTIGS	CMD	REF	
+nocmd_gpu	nocmd	single.CONTIGS	CMD	REF	--use_gpu True
+nocmd_missing	nocmd	single.CONTIGS	None	REF	
+malformed2	malformed2	malformed.CONTIGS	CMD	REF	--pileup_only True --print_ref_calls True
+malformed2_gpu	malformed2	malformed.CONTIGS	CMD	REF	--use_gpu True --pileup_only True --haploid_precise True --print_ref_calls True
+malformed2_plain	malformed2	malformed.CONTIGS	CMD	REF	
+malformed2_plain_gpu	malformed2	malformed.CONTIGS	CMD	REF	--use_gpu True

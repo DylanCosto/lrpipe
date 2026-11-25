@@ -1,0 +1,8 @@
+phase whatshap: 13385.72 s wall, 13264.88 s user, 99% CPU, 3603180 KB max RSS
+phase whatshap-rs -t 1: 1827.42 s wall, 1612.48 s user, 99% CPU, 2134812 KB max RSS
+phase whatshap-rs -t 8: 240.62 s wall, 1858.05 s user, 825% CPU, 7709036 KB max RSS
+phase whatshap-rs -t 24: 131.92 s wall, 2111.71 s user, 1698% CPU, 19872984 KB max RSS
+haplotag whatshap: 10155.98 s wall, 10076.80 s user, 99% CPU, 2959120 KB max RSS
+haplotag whatshap-rs -t 1: 6603.64 s wall, 6513.36 s user, 99% CPU, 2655124 KB max RSS
+haplotag whatshap-rs -t 8: 717.99 s wall, 6648.05 s user, 951% CPU, 4399612 KB max RSS
+haplotag whatshap-rs -t 24: 382.86 s wall, 6713.19 s user, 1793% CPU, 5637668 KB max RSS

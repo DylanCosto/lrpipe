@@ -1,0 +1,22 @@
+[package]
+name = "lrpipe-cnv-cli"
+description = "Command-line tool for lrpipe-cnv, taking Spectre 0.2.1's CNVCaller options"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "lrpipe-cnv"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+lrpipe-cnv.workspace = true
+# Window depths straight from BAM/CRAM, identical to mosdepth's.
+lrpipe-depth.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,16 @@
+# Identity checks at d057a1c (whatshap-rs vs WhatsHap 2.8 outputs from the first benchmark)
+pacbio: phase main-t24: exit 0, vcf identical, read list identical
+pacbio: stats: stdout identical, tsv identical, blocks identical; compare: stdout identical, tsv identical, bed identical, longest identical
+pacbio: phase main-t8: exit 0, vcf identical, read list identical
+pacbio: haplotag main-t24: exit 0, records identical (222f6d121f5002193c567556bca92759), list identical
+illumina: phase main-t24: exit 0, vcf identical, read list identical
+illumina: stats: stdout identical, tsv identical, blocks identical; compare: stdout identical, tsv identical, bed identical, longest identical
+illumina: phase main-t8: exit 0, vcf identical, read list identical
+illumina: haplotag main-t24: exit 0, records identical (f2c44a813478534e9c08923eff6c55c9), list identical
+ont: phase main-t24: exit 0, vcf identical, read list identical
+ont: stats: stdout identical, tsv identical, blocks identical; compare: stdout identical, tsv identical, bed identical, longest identical
+ont: phase main-t8: exit 0, vcf identical, read list identical
+ont: haplotag main-t24: exit 0, records identical (68fff2c905203a71db17e95136481efb), list identical
+all three: compare3: stdout identical, pairwise identical, multiway identical, bed identical, longest identical
+truth: whatshap-rs phase -t 8 VCFs identical to WhatsHap's for pacbio, illumina and ont;
+truth: compare against the GIAB phased truth gives byte-identical stdout and --tsv-pairwise with both tools, for both tools' VCFs

@@ -1,0 +1,56 @@
+# lrpipe setup's resources for GRCh37 (hs37d5, the 1000 Genomes Project's GRCh37 with decoys):
+# the files `lrpipe setup --genome GRCh37` fetches, what it builds from them, and the site.toml
+# keys they fill. models.toml (Clair3's models) is read after this file. The fields are
+# grch38.toml's.
+#
+# Missing for GRCh37: a repeat catalogue. adotto is GRCh38's, and STRchive's hg19 catalogue is
+# not established to use hs37d5's contig names (1, 2, ..., not chr1).
+
+format = 1
+genome = "GRCh37"
+missing = [
+    "a repeat catalogue: adotto is GRCh38's, and STRchive's hg19 one is not established to use hs37d5's contig names; without one no repeats are genotyped",
+]
+
+[site]
+reference = "reference"
+tandem_repeats = "tandem_repeats"
+blacklist = "blacklist"
+metadata = "grch37_reference.mdr"
+
+# hs37d5: GRCh37's primary assembly, rCRS, EBV and the decoys, as the 1000 Genomes Project
+# distributes it (BGZF), unpacked.
+[[file]]
+id = "reference"
+url = "https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/phase2_reference_assembly_sequence/hs37d5.fa.gz"
+path = "hs37d5.fa"
+unpack = "gunzip"
+size = 892326179
+unpinned = "the 1000 Genomes FTP publishes no checksum for it"
+licence = "Free to use without restriction (IGSR's data reuse policy; GRCh37 from the GRC)"
+licence_url = "https://www.internationalgenome.org/data-reuse-policy"
+
+# Sniffles2's tandem repeat annotation for hs37d5, at Sniffles commit b2480d1. It is pbsv's
+# (annotations/source.txt), whose only licence is PacBio's, so its terms are accepted.
+[[file]]
+id = "tandem_repeats"
+url = "https://raw.githubusercontent.com/fritzsedlazeck/Sniffles/b2480d1e7408bce5f67f0fc727ca070015867ee8/annotations/human_hs37d5.trf.bed"
+path = "human_hs37d5.trf.bed"
+size = 6685559
+# Of a copy whose git blob id is GitHub's for this file at that commit (6339ff6086b4...).
+sha256 = "8115a0328b2c1a34b2a764e1141f34794c20add47c4005ae1be43fe3e6f13a07"
+licence = "PacBio Software License Agreement (pbsv's annotations/, where the file comes from)"
+licence_url = "https://github.com/PacificBiosciences/pbsv/blob/master/LICENSE"
+accept = true
+terms = "The file comes from PacBio's pbsv repository, whose only licence is the PacBio Software License Agreement: a non-exclusive, non-transferable licence to use and distribute it in binary form only, solely to process or analyse data generated on a PacBio instrument or otherwise provided by PacBio, holding it confidential. The agreement does not say whether it covers annotation files; see the licence."
+
+# Spectre's refined GRCh37 blacklist (the one its README recommends), at Spectre 0.2.1.
+[[file]]
+id = "blacklist"
+url = "https://raw.githubusercontent.com/fritzsedlazeck/Spectre/905809435a6bb00aa413a4cf4d4424365112a0af/data/grch37_blacklist_spectre_refined.bed"
+path = "grch37_blacklist_spectre_refined.bed"
+size = 4598
+# Of a copy whose git blob id is GitHub's for this file at that commit (57486e4f39c6...).
+sha256 = "76a49b576f0fe67e4c51319c9a723da68e1e7dcb57f7298f1c08af8a55b47095"
+licence = "MIT (Spectre)"
+licence_url = "https://github.com/fritzsedlazeck/Spectre/blob/main/LICENSE"

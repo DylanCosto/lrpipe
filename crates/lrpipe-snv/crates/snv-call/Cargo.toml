@@ -1,0 +1,24 @@
+[package]
+name = "snv-call"
+description = "Genotype decoding and VCF records from network probabilities"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license = "BSD-3-Clause"
+publish = false
+
+[dependencies]
+lrpipe-reads.workspace = true
+lz4_flex.workspace = true
+thiserror.workspace = true
+twox-hash.workspace = true
+
+[lints.rust]
+missing_debug_implementations = "warn"
+unsafe_op_in_unsafe_fn = "warn"
+unused_qualifications = "warn"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }
+allow_attributes_without_reason = "warn"
+undocumented_unsafe_blocks = "warn"

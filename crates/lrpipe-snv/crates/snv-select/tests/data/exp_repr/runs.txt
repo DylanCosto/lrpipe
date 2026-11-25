@@ -1,0 +1,4 @@
+phase 0.6
+full 0.7 1.0 EMPTY
+phase 0.0
+het chr1

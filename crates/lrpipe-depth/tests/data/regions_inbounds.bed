@@ -1,0 +1,15 @@
+track name=test
+# comment
+c1	4000	4900	late
+c1	0	500	start
+c1	100	300	inner
+c1	250	260
+c1	1000	1000	empty_iv
+c2	0	3000	whole
+not_in_bam	0	10	missing
+chr22	20500000	20600000	hifi_a
+chr22	21000000	21000500
+chr20	30100000	30200000	ont_a
+chr20	30250000	30260000
+chrX	0	156040895	x
+chrY	2781479	56887902	y

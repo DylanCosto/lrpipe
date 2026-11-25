@@ -1,0 +1,57 @@
+# lrpipe setup's resources for T2T-CHM13 v2.0: the files `lrpipe setup --genome CHM13` fetches,
+# what it builds from them, and the site.toml keys they fill. models.toml (Clair3's models) is
+# read after this file. The fields are grch38.toml's.
+#
+# Missing for CHM13: Spectre's blacklist (Spectre publishes GRCh37's and GRCh38's only) and a
+# genome-wide repeat catalogue (adotto is GRCh38's); the catalogue is STRchive's disease loci.
+
+format = 1
+genome = "CHM13"
+missing = [
+    "a CNV blacklist: Spectre publishes GRCh37's and GRCh38's only",
+    "a genome-wide repeat catalogue (adotto is GRCh38's): the catalogue is STRchive's 82 disease loci",
+]
+
+[site]
+reference = "reference"
+tandem_repeats = "tandem_repeats"
+catalog = "strchive"
+metadata = "chm13_reference.mdr"
+
+# The T2T consortium's analysis set: CHM13 v2.0 with chrY's PARs hard-masked and rCRS as chrM,
+# the one pbsv's TRF BED is made for. BGZF, unpacked like the others.
+[[file]]
+id = "reference"
+url = "https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/CHM13/assemblies/analysis_set/chm13v2.0_maskedY_rCRS.fa.gz"
+path = "chm13v2.0_maskedY_rCRS.fa"
+unpack = "gunzip"
+size = 980387160
+# The analysis set's README.txt.
+md5 = "b17cd2bdd8eb5544e195d6a8882e417b"
+licence = "CC0-1.0 (T2T consortium: all data released to the public domain)"
+licence_url = "https://github.com/marbl/CHM13#data-reuse-and-license"
+
+# pbsv's tandem repeat annotation for this analysis set, at pbsv commit 72703e9. Sniffles ships
+# none for CHM13.
+[[file]]
+id = "tandem_repeats"
+url = "https://raw.githubusercontent.com/PacificBiosciences/pbsv/72703e9287b7246588a7f81127d78220f326a79d/annotations/human_chm13v2.0_maskedY_rCRS.trf.bed"
+path = "human_chm13v2.0_maskedY_rCRS.trf.bed"
+size = 7917186
+# GitHub's git blob id for it is 67b0c9def67d9290e047418612220c9ffbb539b0.
+unpinned = "GitHub publishes only its git blob id"
+licence = "PacBio Software License Agreement (pbsv's annotations/, where the file comes from)"
+licence_url = "https://github.com/PacificBiosciences/pbsv/blob/master/LICENSE"
+accept = true
+terms = "The file comes from PacBio's pbsv repository, whose only licence is the PacBio Software License Agreement: a non-exclusive, non-transferable licence to use and distribute it in binary form only, solely to process or analyse data generated on a PacBio instrument or otherwise provided by PacBio, holding it confidential. The agreement does not say whether it covers annotation files; see the licence."
+
+# STRchive's pathogenic repeat loci in TRGT's format, at STRchive commit e964fa8.
+[[file]]
+id = "strchive"
+url = "https://raw.githubusercontent.com/dashnowlab/STRchive/e964fa88df3b2189ee478cbd6eaad15bb28e3a0a/data/catalogs/STRchive-disease-loci.T2T-chm13.TRGT.bed"
+path = "STRchive-disease-loci.T2T-chm13.TRGT.bed"
+size = 5888
+# GitHub's git blob id for it is e3a4533ef99d1de64bfed480f57364cc8dc339bc.
+unpinned = "GitHub publishes only its git blob id"
+licence = "CC-BY-4.0 (STRchive, Harriet Dashnow)"
+licence_url = "https://github.com/dashnowlab/STRchive#readme"

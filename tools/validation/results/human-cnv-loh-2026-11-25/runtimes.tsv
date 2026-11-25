@@ -1,0 +1,12 @@
+dataset	run	gpu_snv_s	cpu_read_pass_s	cpu_cnv_loh_s	cpu_qc_s	wall_s
+hcc1395-tumor	integrated	318.862	104.97	73.659	2.238	397.396
+hcc1395-normal	integrated	227.976	100.549	57.79	2.636	288.744
+hg008-ont	integrated	574.208	359.009	59.215	2.587	636.451
+hg002-hifi	cached_cnv	NA	NA	55.28	NA	55.28
+hg002-ont	cached_cnv	NA	NA	55.64	NA	55.64
+hg003-hifi	cached_cnv	NA	NA	54.25	NA	54.25
+hg003-ont	cached_cnv	NA	NA	54.56	NA	54.56
+hg004-hifi	cached_cnv	NA	NA	54.57	NA	54.57
+hg004-ont	cached_cnv	NA	NA	55.39	NA	55.39
+hcc1395-tumor	cancer	NA	NA	68.18	NA	68.18
+hcc1395-tumor	dosage_anchor	NA	NA	62.61	NA	62.61

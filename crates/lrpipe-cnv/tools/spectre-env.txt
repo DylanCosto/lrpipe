@@ -1,0 +1,10 @@
+# The reference environment for Spectre 0.2.1 (micromamba/conda). bioconda has no Python 3.11
+# build of pysam 0.22.0; Spectre's own CI uses 3.10. bottleneck must not be installed: it
+# changes the summation order of pandas reductions.
+#   micromamba create -p ENV -c conda-forge -c bioconda --override-channels --file tools/spectre-env.txt
+python=3.10
+numpy=1.24.3
+pandas=2.0.1
+scipy=1.10.1
+pysam=0.22.0
+matplotlib=3.7.1

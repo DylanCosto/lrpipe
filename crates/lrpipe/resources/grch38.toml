@@ -1,0 +1,96 @@
+# lrpipe setup's resources for GRCh38: the files `lrpipe setup --genome GRCh38` fetches, what it
+# builds from them, and the site.toml keys they fill. models.toml (Clair3's models) is read after
+# this file.
+#
+# Each [[file]] is fetched from `url` to `path` under the setup directory (gunzipped to `path`
+# where `unpack = "gunzip"`), and checked against `sha256` and the publisher's own `md5` where
+# given; `size` is the bytes fetched. A file with neither names why in `unpinned`: it is fetched
+# and used all the same, checked by `size` alone, and never counted as verified until
+# `lrpipe setup --pin` writes its sha256 here. `accept = true` marks terms the user must accept
+# (--accept-licences).
+#
+# Where a sha256 is not the publisher's, the comment beside it says how it was established.
+
+format = 1
+genome = "GRCh38"
+
+[site]
+reference = "reference"
+tandem_repeats = "tandem_repeats"
+catalog = "catalog"
+blacklist = "blacklist"
+# Made from the reference by lrpipe-cnv (its N runs).
+metadata = "grch38_reference.mdr"
+
+# GRC's GRCh38 "no alt" analysis set (NCBI GCA_000001405.15), the reference Sniffles' TRF BED,
+# the catalogues and Spectre's blacklist are made for. Plain gzip, so it is unpacked.
+[[file]]
+id = "reference"
+url = "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.15_GRCh38/seqs_for_alignment_pipelines.ucsc_ids/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna.gz"
+path = "GRCh38_no_alt_analysis_set.fa"
+unpack = "gunzip"
+size = 872949833
+# NCBI's md5checksums.txt in the same directory.
+md5 = "a08035b6a6e31780e96a34008ff21bd6"
+licence = "Public domain: NCBI places no restrictions on the use or distribution of the GRC's assemblies"
+licence_url = "https://www.ncbi.nlm.nih.gov/home/about/policies/"
+
+# Sniffles2's tandem repeat annotation (--tandem-repeats), at Sniffles commit b2480d1. It is
+# pbsv's (annotations/source.txt), whose only licence is PacBio's: the Sniffles repository's
+# MIT licence cannot grant more, so its terms are accepted as for CHM13's.
+[[file]]
+id = "tandem_repeats"
+url = "https://raw.githubusercontent.com/fritzsedlazeck/Sniffles/b2480d1e7408bce5f67f0fc727ca070015867ee8/annotations/human_GRCh38_no_alt_analysis_set.trf.bed"
+path = "human_GRCh38_no_alt_analysis_set.trf.bed"
+size = 7594623
+# Of a copy whose git blob id is GitHub's for this file at that commit (b163994691d9...).
+sha256 = "729cbb38bff84534070033db1ae004b6368f6856eef12dd7ce93e8ee55f37407"
+licence = "PacBio Software License Agreement (pbsv's annotations/, where the file comes from)"
+licence_url = "https://github.com/PacificBiosciences/pbsv/blob/master/LICENSE"
+accept = true
+terms = "The file comes from PacBio's pbsv repository, whose only licence is the PacBio Software License Agreement: a non-exclusive, non-transferable licence to use and distribute it in binary form only, solely to process or analyse data generated on a PacBio instrument or otherwise provided by PacBio, holding it confidential. The agreement does not say whether it covers annotation files; see the licence."
+
+# The adotto tandem repeat catalogue in TRGT's format (937,122 loci), from "Repeat catalogs for
+# TRGT" 0.0.2 (doi:10.5281/zenodo.8329210).
+[[file]]
+id = "adotto"
+url = "https://zenodo.org/records/8329210/files/adotto_repeats.hg38.bed.gz?download=1"
+path = "sources/adotto_repeats.hg38.bed.gz"
+size = 18178561
+# Zenodo's.
+md5 = "9cfe0da4028cf7f7502162ee090199e4"
+# Of a copy with Zenodo's md5.
+sha256 = "c9deb43b5e80b7b50e42df4b5a23a06dc8c79d5309f04cb75b0307e4c16652c3"
+licence = "CC-BY-4.0 (Repeat catalogs for TRGT, Zenodo)"
+licence_url = "https://creativecommons.org/licenses/by/4.0/"
+
+# STRchive's pathogenic repeat loci in TRGT's format (82 loci), at STRchive commit e964fa8.
+[[file]]
+id = "strchive"
+url = "https://raw.githubusercontent.com/dashnowlab/STRchive/e964fa88df3b2189ee478cbd6eaad15bb28e3a0a/data/catalogs/STRchive-disease-loci.hg38.TRGT.bed"
+path = "sources/STRchive-disease-loci.hg38.TRGT.bed"
+size = 5890
+# Of a copy whose git blob id is GitHub's for this file at that commit (447acaacbec3...).
+sha256 = "723b51ae9ec013dc6cc29bdadea6821a49dd1cde02bea1e1ab74becbedef9077"
+licence = "CC-BY-4.0 (STRchive, Harriet Dashnow)"
+licence_url = "https://github.com/dashnowlab/STRchive#readme"
+
+# Spectre's GRCh38 blacklist, at Spectre 0.2.1 (commit 9058094).
+[[file]]
+id = "blacklist"
+url = "https://raw.githubusercontent.com/fritzsedlazeck/Spectre/905809435a6bb00aa413a4cf4d4424365112a0af/data/grch38_blacklist_spectre.bed"
+path = "grch38_blacklist_spectre.bed"
+size = 5899
+# Of a copy whose git blob id is GitHub's for this file at that commit (f4cb01e8652f...).
+sha256 = "17ef3a67435a2c519bd9dbc8ef029cf5b0dba71dd553501bb8f6624125f76656"
+licence = "MIT (Spectre)"
+licence_url = "https://github.com/fritzsedlazeck/Spectre/blob/main/LICENSE"
+
+# adotto and STRchive's loci together (937,204), sorted by contig name and start as
+# `LC_ALL=C sort -k1,1 -k2,2n` sorts them: lrpipe's README's catalog.adotto_strchive.hg38.bed.
+[[build]]
+id = "catalog"
+kind = "catalog"
+inputs = ["adotto", "strchive"]
+path = "catalog.adotto_strchive.hg38.bed"
+sha256 = "fe02c286958f4f9316b51cd484cdc4d1bd66066f711aacf099c2052eeda2f44e"

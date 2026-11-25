@@ -1,0 +1,76 @@
+[package]
+name = "lrpipe"
+description = "Long-read calling in one binary: the pipeline (SNVs with lrpipe-snv, SVs, CNVs, tandem repeats, depth, methylation) and each of its tools"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "lrpipe"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+flate2.workspace = true
+libc = "0.2.191"
+# lrpipe setup's checks of the publishers' MD5s.
+md-5.workspace = true
+# The reads' header, for the Clair3 model that fits them; lrpipe setup's FASTA and BGZF
+# indexes.
+pasta.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+signal-hook = "0.3.18"
+snv-merge.workspace = true
+# `[snv] device`, checked as lrpipe-snv reads it before any stage runs.
+snv-infer.workspace = true
+thiserror.workspace = true
+# The tools, which the lrpipe binary runs as its subcommands (the pipeline runs them as programs).
+lrpipe-cnv-cli.workspace = true
+# lrpipe-cnv's .mdr of a reference's N runs, which `lrpipe run` makes where the configuration names one.
+lrpipe-cnv.workspace = true
+lrpipe-depth.workspace = true
+lrpipe-methyl.workspace = true
+lrpipe-phase.workspace = true
+lrpipe-reads.workspace = true
+lrpipe-snv.workspace = true
+lrpipe-sv.workspace = true
+lrpipe-tr.workspace = true
+toml = "1.1.8"
+# `lrpipe run`'s full-screen display of its stages, on a terminal.
+ratatui = { version = "0.30.2", default-features = false, features = ["crossterm"] }
+# lrpipe setup's downloads: a small blocking HTTP client, with rustls and Mozilla's roots built in
+# (no OpenSSL or system certificates, for the static release bundle), and no transparent gzip, so
+# a .gz is fetched as published.
+ureq = { version = "3.5.1", default-features = false, features = ["rustls"] }
+
+pprof = { version = "0.15.0", optional = true }
+
+[dev-dependencies]
+# Haplotagged BAMs for the tests of `lrpipe run`'s check for HP tags.
+pasta.workspace = true
+
+[features]
+default = ["gpu"]
+# lrpipe snv's networks on CUDA GPUs (`--device cuda:N`), the driver and NVRTC loaded at run time.
+gpu = ["lrpipe-snv/gpu"]
+# lrpipe snv's networks on Apple GPUs (`--device metal`, macOS only).
+metal = ["lrpipe-snv/metal"]
+# Sampling CPU profiler: with LRPIPE_PROFILE=prefix, every command writes a flame graph and the
+# functions by inclusive and self time to prefix.COMMAND.PID.{svg,txt}.
+profile = ["dep:pprof"]
+
+[lints.rust]
+unsafe_code = "deny"
+unsafe_op_in_unsafe_fn = "deny"
+missing_docs = "warn"
+missing_debug_implementations = "warn"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }
+undocumented_unsafe_blocks = "warn"
+allow_attributes_without_reason = "warn"

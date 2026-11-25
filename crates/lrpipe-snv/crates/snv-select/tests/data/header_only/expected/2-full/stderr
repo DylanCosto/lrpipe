@@ -1,0 +1,4 @@
+[93m[WARNING] Cannot find any low-quality 0/1 or 1/1 variant in pileup output using variant quality cut-off proportion: 0.3, total variants: 0[0m
+[93m[WARNING] Set low variant quality score cut-off to 0.0[0m
+[93m[WARNING] Cannot find any low-quality 0/0 reference calls in pileup output using reference quality cut-off proportion: 0.3, total reference calls: 0[0m
+[93m[WARNING] Set low reference quality score cut-off to 0.0[0m

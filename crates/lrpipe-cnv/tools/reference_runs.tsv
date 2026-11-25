@@ -1,0 +1,13 @@
+# Reference runs of Spectre 0.2.1 (tools/run_spectre.py), in $SPECTRE_BENCH/ref/<name>.
+# Columns: name, sample, coverage, snv (- for none), only_chr (- for all), extra Spectre options.
+# tools/make_reference.sh makes them. Every run also uses -r $REFERENCE,
+# -m $SPECTRE_BENCH/inputs/grch38_reference.mdr and -l $SPECTRE_BENCH/inputs/grch38_blacklist_spectre.bed
+# (Spectre's data/grch38_blacklist_spectre.bed); runs named *seed7 seed numpy with 7, others with 0.
+chr20_snv	HG003	inputs/hg003_chr20/mosdepth.regions.bed.gz	inputs/hg003_chr20/clair3.af1.vcf.gz	chr20	-
+chr20_snv_seed7	HG003	inputs/hg003_chr20/mosdepth.regions.bed.gz	inputs/hg003_chr20/clair3.af1.vcf.gz	chr20	-
+chr20_nosnv	HG003	inputs/hg003_chr20/mosdepth.regions.bed.gz	-	chr20	-
+synth_snv	HG003	inputs/hg003_chr20_synth/mosdepth.regions.bed.gz	inputs/hg003_chr20_synth/snv.vcf.gz	chr20	-
+synth_nosnv	HG003	inputs/hg003_chr20_synth/mosdepth.regions.bed.gz	-	chr20	-
+synth_only_nosnv	HG003	inputs/hg003_chr20_synth_only/mosdepth.regions.bed.gz	-	chr20	-
+wgs_hifi	HG002	inputs/hg002_hifi_wgs/mosdepth.regions.bed.gz	-	-	-
+wgs_hifi_snv	HG002	inputs/hg002_hifi_wgs/mosdepth.regions.bed.gz	inputs/hg002_hifi_wgs/pellucid.af1.vcf.gz	-	-

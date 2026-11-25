@@ -1,0 +1,22 @@
+[package]
+name = "lrpipe-reads"
+description = "Indexed BAM and CRAM reading shared by lrpipe's tools, on pasta"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+# Gzipped haplotag lists.
+flate2.workspace = true
+pasta.workspace = true
+thiserror.workspace = true
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+missing_debug_implementations = "warn"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }

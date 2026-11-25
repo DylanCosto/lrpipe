@@ -1,0 +1,4 @@
+/target*
+/crates/lrpipe-sv/upstream/annotations/*.bed
+/crates/lrpipe-sv/validation/
+/dist/

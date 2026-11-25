@@ -1,0 +1,28 @@
+[package]
+name = "snv-merge"
+description = "SortVcf and MergeVcf: merge chunk VCFs into one sorted, indexed VCF, and pileup with full-alignment calls"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license = "BSD-3-Clause"
+publish = false
+
+[dependencies]
+snv-call.workspace = true
+flate2.workspace = true
+log.workspace = true
+lrpipe-reads.workspace = true
+snv-hts.workspace = true
+pasta.workspace = true
+rayon.workspace = true
+thiserror.workspace = true
+
+[lints.rust]
+missing_debug_implementations = "warn"
+unsafe_op_in_unsafe_fn = "warn"
+unused_qualifications = "warn"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }
+allow_attributes_without_reason = "warn"
+undocumented_unsafe_blocks = "warn"

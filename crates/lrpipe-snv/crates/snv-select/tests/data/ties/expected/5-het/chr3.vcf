@@ -1,0 +1,4 @@
+##fileformat=VCFv4.2
+##contig=<ID=chr1>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SAMPLE
+##INFO=<ID=late,Number=0,Type=Flag,Description="header line after records">

@@ -1,0 +1,223 @@
+# Clair3's models (PyTorch checkpoints, as Clair3 2.0 and lrpipe-snv read them), read after each
+# genome's manifest. Each model is a directory under models/ named as Clair3 names it, holding
+# pileup.pt and full_alignment.pt; `lrpipe setup` fetches the models of the --platform chosen,
+# and writes [models]' one for each platform as site.toml's ont_model and hifi_model.
+#
+# HKU publishes no checksums for them: they are unpinned, checked by size alone, until
+# `lrpipe setup --pin`.
+
+[models]
+ont = "r1041_e82_400bps_sup_v500"
+hifi = "hifi_revio"
+
+# ONT's r1041_e82_400bps_sup_v500 model, converted to PyTorch by HKU.
+[[file]]
+id = "r1041_e82_400bps_sup_v500/pileup"
+model = "r1041_e82_400bps_sup_v500"
+platform = "ont"
+url = "https://www.bio8.cs.hku.hk/clair3/clair3_models_rerio_pytorch/r1041_e82_400bps_sup_v500/pileup.pt"
+path = "models/r1041_e82_400bps_sup_v500/pileup.pt"
+size = 8304746
+unpinned = "HKU publishes no checksums for its models"
+licence = "Oxford Nanopore Technologies PLC. Public License Version 2.0 (ONT's Rerio models)"
+licence_url = "https://github.com/nanoporetech/rerio/blob/master/LICENSE.txt"
+terms = "Oxford Nanopore Technologies PLC. Public License Version 2.0: the models are licensed for Research Purposes only (internal research not directed towards commercial advantage or monetary compensation; grant-funded research is allowed) and for use with Nanopore Data only; see the licence."
+[[file]]
+id = "r1041_e82_400bps_sup_v500/full_alignment"
+model = "r1041_e82_400bps_sup_v500"
+platform = "ont"
+url = "https://www.bio8.cs.hku.hk/clair3/clair3_models_rerio_pytorch/r1041_e82_400bps_sup_v500/full_alignment.pt"
+path = "models/r1041_e82_400bps_sup_v500/full_alignment.pt"
+size = 11983414
+unpinned = "HKU publishes no checksums for its models"
+licence = "Oxford Nanopore Technologies PLC. Public License Version 2.0 (ONT's Rerio models)"
+licence_url = "https://github.com/nanoporetech/rerio/blob/master/LICENSE.txt"
+terms = "Oxford Nanopore Technologies PLC. Public License Version 2.0: the models are licensed for Research Purposes only (internal research not directed towards commercial advantage or monetary compensation; grant-funded research is allowed) and for use with Nanopore Data only; see the licence."
+
+# ONT's r1041_e82_400bps_sup_v520 model, converted to PyTorch by HKU.
+[[file]]
+id = "r1041_e82_400bps_sup_v520/pileup"
+model = "r1041_e82_400bps_sup_v520"
+platform = "ont"
+url = "https://www.bio8.cs.hku.hk/clair3/clair3_models_rerio_pytorch/r1041_e82_400bps_sup_v520/pileup.pt"
+path = "models/r1041_e82_400bps_sup_v520/pileup.pt"
+size = 8304746
+unpinned = "HKU publishes no checksums for its models"
+licence = "Oxford Nanopore Technologies PLC. Public License Version 2.0 (ONT's Rerio models)"
+licence_url = "https://github.com/nanoporetech/rerio/blob/master/LICENSE.txt"
+terms = "Oxford Nanopore Technologies PLC. Public License Version 2.0: the models are licensed for Research Purposes only (internal research not directed towards commercial advantage or monetary compensation; grant-funded research is allowed) and for use with Nanopore Data only; see the licence."
+[[file]]
+id = "r1041_e82_400bps_sup_v520/full_alignment"
+model = "r1041_e82_400bps_sup_v520"
+platform = "ont"
+url = "https://www.bio8.cs.hku.hk/clair3/clair3_models_rerio_pytorch/r1041_e82_400bps_sup_v520/full_alignment.pt"
+path = "models/r1041_e82_400bps_sup_v520/full_alignment.pt"
+size = 11983414
+unpinned = "HKU publishes no checksums for its models"
+licence = "Oxford Nanopore Technologies PLC. Public License Version 2.0 (ONT's Rerio models)"
+licence_url = "https://github.com/nanoporetech/rerio/blob/master/LICENSE.txt"
+terms = "Oxford Nanopore Technologies PLC. Public License Version 2.0: the models are licensed for Research Purposes only (internal research not directed towards commercial advantage or monetary compensation; grant-funded research is allowed) and for use with Nanopore Data only; see the licence."
+
+# ONT's r1041_e82_400bps_sup_v410 model, converted to PyTorch by HKU.
+[[file]]
+id = "r1041_e82_400bps_sup_v410/pileup"
+model = "r1041_e82_400bps_sup_v410"
+platform = "ont"
+url = "https://www.bio8.cs.hku.hk/clair3/clair3_models_rerio_pytorch/r1041_e82_400bps_sup_v410/pileup.pt"
+path = "models/r1041_e82_400bps_sup_v410/pileup.pt"
+size = 8304746
+unpinned = "HKU publishes no checksums for its models"
+licence = "Oxford Nanopore Technologies PLC. Public License Version 2.0 (ONT's Rerio models)"
+licence_url = "https://github.com/nanoporetech/rerio/blob/master/LICENSE.txt"
+terms = "Oxford Nanopore Technologies PLC. Public License Version 2.0: the models are licensed for Research Purposes only (internal research not directed towards commercial advantage or monetary compensation; grant-funded research is allowed) and for use with Nanopore Data only; see the licence."
+[[file]]
+id = "r1041_e82_400bps_sup_v410/full_alignment"
+model = "r1041_e82_400bps_sup_v410"
+platform = "ont"
+url = "https://www.bio8.cs.hku.hk/clair3/clair3_models_rerio_pytorch/r1041_e82_400bps_sup_v410/full_alignment.pt"
+path = "models/r1041_e82_400bps_sup_v410/full_alignment.pt"
+size = 11983414
+unpinned = "HKU publishes no checksums for its models"
+licence = "Oxford Nanopore Technologies PLC. Public License Version 2.0 (ONT's Rerio models)"
+licence_url = "https://github.com/nanoporetech/rerio/blob/master/LICENSE.txt"
+terms = "Oxford Nanopore Technologies PLC. Public License Version 2.0: the models are licensed for Research Purposes only (internal research not directed towards commercial advantage or monetary compensation; grant-funded research is allowed) and for use with Nanopore Data only; see the licence."
+
+# ONT's r1041_e82_400bps_hac_v600 model, converted to PyTorch by HKU.
+[[file]]
+id = "r1041_e82_400bps_hac_v600/pileup"
+model = "r1041_e82_400bps_hac_v600"
+platform = "ont"
+url = "https://www.bio8.cs.hku.hk/clair3/clair3_models_rerio_pytorch/r1041_e82_400bps_hac_v600/pileup.pt"
+path = "models/r1041_e82_400bps_hac_v600/pileup.pt"
+size = 8304746
+unpinned = "HKU publishes no checksums for its models"
+licence = "Oxford Nanopore Technologies PLC. Public License Version 2.0 (ONT's Rerio models)"
+licence_url = "https://github.com/nanoporetech/rerio/blob/master/LICENSE.txt"
+terms = "Oxford Nanopore Technologies PLC. Public License Version 2.0: the models are licensed for Research Purposes only (internal research not directed towards commercial advantage or monetary compensation; grant-funded research is allowed) and for use with Nanopore Data only; see the licence."
+[[file]]
+id = "r1041_e82_400bps_hac_v600/full_alignment"
+model = "r1041_e82_400bps_hac_v600"
+platform = "ont"
+url = "https://www.bio8.cs.hku.hk/clair3/clair3_models_rerio_pytorch/r1041_e82_400bps_hac_v600/full_alignment.pt"
+path = "models/r1041_e82_400bps_hac_v600/full_alignment.pt"
+size = 11983414
+unpinned = "HKU publishes no checksums for its models"
+licence = "Oxford Nanopore Technologies PLC. Public License Version 2.0 (ONT's Rerio models)"
+licence_url = "https://github.com/nanoporetech/rerio/blob/master/LICENSE.txt"
+terms = "Oxford Nanopore Technologies PLC. Public License Version 2.0: the models are licensed for Research Purposes only (internal research not directed towards commercial advantage or monetary compensation; grant-funded research is allowed) and for use with Nanopore Data only; see the licence."
+
+# ONT's r1041_e82_400bps_hac_v520 model, converted to PyTorch by HKU.
+[[file]]
+id = "r1041_e82_400bps_hac_v520/pileup"
+model = "r1041_e82_400bps_hac_v520"
+platform = "ont"
+url = "https://www.bio8.cs.hku.hk/clair3/clair3_models_rerio_pytorch/r1041_e82_400bps_hac_v520/pileup.pt"
+path = "models/r1041_e82_400bps_hac_v520/pileup.pt"
+size = 8304746
+unpinned = "HKU publishes no checksums for its models"
+licence = "Oxford Nanopore Technologies PLC. Public License Version 2.0 (ONT's Rerio models)"
+licence_url = "https://github.com/nanoporetech/rerio/blob/master/LICENSE.txt"
+terms = "Oxford Nanopore Technologies PLC. Public License Version 2.0: the models are licensed for Research Purposes only (internal research not directed towards commercial advantage or monetary compensation; grant-funded research is allowed) and for use with Nanopore Data only; see the licence."
+[[file]]
+id = "r1041_e82_400bps_hac_v520/full_alignment"
+model = "r1041_e82_400bps_hac_v520"
+platform = "ont"
+url = "https://www.bio8.cs.hku.hk/clair3/clair3_models_rerio_pytorch/r1041_e82_400bps_hac_v520/full_alignment.pt"
+path = "models/r1041_e82_400bps_hac_v520/full_alignment.pt"
+size = 11983414
+unpinned = "HKU publishes no checksums for its models"
+licence = "Oxford Nanopore Technologies PLC. Public License Version 2.0 (ONT's Rerio models)"
+licence_url = "https://github.com/nanoporetech/rerio/blob/master/LICENSE.txt"
+terms = "Oxford Nanopore Technologies PLC. Public License Version 2.0: the models are licensed for Research Purposes only (internal research not directed towards commercial advantage or monetary compensation; grant-funded research is allowed) and for use with Nanopore Data only; see the licence."
+
+# ONT's r1041_e82_400bps_hac_v500 model, converted to PyTorch by HKU.
+[[file]]
+id = "r1041_e82_400bps_hac_v500/pileup"
+model = "r1041_e82_400bps_hac_v500"
+platform = "ont"
+url = "https://www.bio8.cs.hku.hk/clair3/clair3_models_rerio_pytorch/r1041_e82_400bps_hac_v500/pileup.pt"
+path = "models/r1041_e82_400bps_hac_v500/pileup.pt"
+size = 8304746
+unpinned = "HKU publishes no checksums for its models"
+licence = "Oxford Nanopore Technologies PLC. Public License Version 2.0 (ONT's Rerio models)"
+licence_url = "https://github.com/nanoporetech/rerio/blob/master/LICENSE.txt"
+terms = "Oxford Nanopore Technologies PLC. Public License Version 2.0: the models are licensed for Research Purposes only (internal research not directed towards commercial advantage or monetary compensation; grant-funded research is allowed) and for use with Nanopore Data only; see the licence."
+[[file]]
+id = "r1041_e82_400bps_hac_v500/full_alignment"
+model = "r1041_e82_400bps_hac_v500"
+platform = "ont"
+url = "https://www.bio8.cs.hku.hk/clair3/clair3_models_rerio_pytorch/r1041_e82_400bps_hac_v500/full_alignment.pt"
+path = "models/r1041_e82_400bps_hac_v500/full_alignment.pt"
+size = 11983414
+unpinned = "HKU publishes no checksums for its models"
+licence = "Oxford Nanopore Technologies PLC. Public License Version 2.0 (ONT's Rerio models)"
+licence_url = "https://github.com/nanoporetech/rerio/blob/master/LICENSE.txt"
+terms = "Oxford Nanopore Technologies PLC. Public License Version 2.0: the models are licensed for Research Purposes only (internal research not directed towards commercial advantage or monetary compensation; grant-funded research is allowed) and for use with Nanopore Data only; see the licence."
+
+# ONT's r1041_e82_400bps_hac_v410 model, converted to PyTorch by HKU.
+[[file]]
+id = "r1041_e82_400bps_hac_v410/pileup"
+model = "r1041_e82_400bps_hac_v410"
+platform = "ont"
+url = "https://www.bio8.cs.hku.hk/clair3/clair3_models_rerio_pytorch/r1041_e82_400bps_hac_v410/pileup.pt"
+path = "models/r1041_e82_400bps_hac_v410/pileup.pt"
+size = 8304746
+unpinned = "HKU publishes no checksums for its models"
+licence = "Oxford Nanopore Technologies PLC. Public License Version 2.0 (ONT's Rerio models)"
+licence_url = "https://github.com/nanoporetech/rerio/blob/master/LICENSE.txt"
+terms = "Oxford Nanopore Technologies PLC. Public License Version 2.0: the models are licensed for Research Purposes only (internal research not directed towards commercial advantage or monetary compensation; grant-funded research is allowed) and for use with Nanopore Data only; see the licence."
+[[file]]
+id = "r1041_e82_400bps_hac_v410/full_alignment"
+model = "r1041_e82_400bps_hac_v410"
+platform = "ont"
+url = "https://www.bio8.cs.hku.hk/clair3/clair3_models_rerio_pytorch/r1041_e82_400bps_hac_v410/full_alignment.pt"
+path = "models/r1041_e82_400bps_hac_v410/full_alignment.pt"
+size = 11983414
+unpinned = "HKU publishes no checksums for its models"
+licence = "Oxford Nanopore Technologies PLC. Public License Version 2.0 (ONT's Rerio models)"
+licence_url = "https://github.com/nanoporetech/rerio/blob/master/LICENSE.txt"
+terms = "Oxford Nanopore Technologies PLC. Public License Version 2.0: the models are licensed for Research Purposes only (internal research not directed towards commercial advantage or monetary compensation; grant-funded research is allowed) and for use with Nanopore Data only; see the licence."
+
+# HKU's hifi_revio model.
+[[file]]
+id = "hifi_revio/pileup"
+model = "hifi_revio"
+platform = "hifi"
+url = "https://www.bio8.cs.hku.hk/clair3/clair3_models_pytorch/hifi_revio/pileup.pt"
+path = "models/hifi_revio/pileup.pt"
+size = 8304746
+unpinned = "HKU publishes no checksums for its models"
+licence = "BSD-3-Clause (Clair3, HKU); no separate licence is stated for the models"
+licence_url = "https://github.com/HKU-BAL/Clair3/blob/main/LICENSE.md"
+[[file]]
+id = "hifi_revio/full_alignment"
+model = "hifi_revio"
+platform = "hifi"
+url = "https://www.bio8.cs.hku.hk/clair3/clair3_models_pytorch/hifi_revio/full_alignment.pt"
+path = "models/hifi_revio/full_alignment.pt"
+size = 11983414
+unpinned = "HKU publishes no checksums for its models"
+licence = "BSD-3-Clause (Clair3, HKU); no separate licence is stated for the models"
+licence_url = "https://github.com/HKU-BAL/Clair3/blob/main/LICENSE.md"
+
+# HKU's hifi_sequel2 model.
+[[file]]
+id = "hifi_sequel2/pileup"
+model = "hifi_sequel2"
+platform = "hifi"
+url = "https://www.bio8.cs.hku.hk/clair3/clair3_models_pytorch/hifi_sequel2/pileup.pt"
+path = "models/hifi_sequel2/pileup.pt"
+size = 8304746
+unpinned = "HKU publishes no checksums for its models"
+licence = "BSD-3-Clause (Clair3, HKU); no separate licence is stated for the models"
+licence_url = "https://github.com/HKU-BAL/Clair3/blob/main/LICENSE.md"
+[[file]]
+id = "hifi_sequel2/full_alignment"
+model = "hifi_sequel2"
+platform = "hifi"
+url = "https://www.bio8.cs.hku.hk/clair3/clair3_models_pytorch/hifi_sequel2/full_alignment.pt"
+path = "models/hifi_sequel2/full_alignment.pt"
+size = 11983414
+unpinned = "HKU publishes no checksums for its models"
+licence = "BSD-3-Clause (Clair3, HKU); no separate licence is stated for the models"
+licence_url = "https://github.com/HKU-BAL/Clair3/blob/main/LICENSE.md"

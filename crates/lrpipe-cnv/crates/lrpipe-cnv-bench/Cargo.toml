@@ -1,0 +1,20 @@
+[package]
+name = "lrpipe-cnv-bench"
+description = "Scores CNV calls against a truth set: precision, recall and breakpoint error by type and size"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "lrpipe-cnv-bench"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+flate2.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,19 @@
+[package]
+name = "pynum"
+description = "Python, numpy and scipy numerics reproduced bit for bit, for ports of Python tools"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+sha2.workspace = true
+
+[dev-dependencies]
+flate2.workspace = true
+md-5.workspace = true
+serde_json.workspace = true
+
+[lints]
+workspace = true

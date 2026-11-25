@@ -1,0 +1,29 @@
+[package]
+name = "lrpipe-tr"
+description = "Tandem repeat genotyping from long reads (HiFi and ONT), in pure Rust"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "lrpipe-tr"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+thiserror.workspace = true
+pasta.workspace = true
+flate2.workspace = true
+lrpipe-reads.workspace = true
+
+[dev-dependencies]
+
+[lints.rust]
+missing_docs = "warn"
+unsafe_code = "forbid"
+missing_debug_implementations = "warn"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }

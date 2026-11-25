@@ -1,0 +1,23 @@
+	Command being timed: "/data2/bioinformatics/lrpipe-build/val022/bundle/lrpipe-0.2.2-x86_64-linux/bin/lrpipe snv run --bam /data2/bioinformatics/sniffles-rs-bench/hifi-wgs/HG002.hifi.bonefishY.bam --ref /data/bioinformatics/projects/ont-aligner/hifi-work/ref/GRCh38_no_alt.fa --model-path /data2/bioinformatics/envs/clair3-t213/bin/models/hifi --platform hifi --sample-name HG002 --threads 16 --output /data2/bioinformatics/lrpipe-build/val022/out/snv-hifi-gpu-0.2.2 --remove-intermediate-dir=true --device cuda:0 --nvrtc /data2/bioinformatics/envs/torch213-cuda/lib/libnvrtc.so.12"
+	User time (seconds): 2121.15
+	System time (seconds): 186.33
+	Percent of CPU this job got: 894%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 4:17.91
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 11092088
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 6
+	Minor (reclaiming a frame) page faults: 84907827
+	Voluntary context switches: 889478
+	Involuntary context switches: 3508929
+	Swaps: 0
+	File system inputs: 237058616
+	File system outputs: 6099504
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

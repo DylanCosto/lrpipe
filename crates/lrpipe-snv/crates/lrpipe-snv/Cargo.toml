@@ -1,0 +1,58 @@
+[package]
+name = "lrpipe-snv"
+description = "Command-line driver for lrpipe-snv"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license = "BSD-3-Clause"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "lrpipe-snv"
+path = "src/main.rs"
+
+[dependencies]
+pprof = { version = "0.15.0", optional = true }
+anyhow.workspace = true
+snv-call.workspace = true
+snv-fullalign.workspace = true
+snv-infer.workspace = true
+snv-merge.workspace = true
+snv-mpileup.workspace = true
+snv-phase.workspace = true
+snv-pileup.workspace = true
+snv-realign.workspace = true
+snv-select.workspace = true
+clap.workspace = true
+env_logger.workspace = true
+flate2.workspace = true
+libc.workspace = true
+log.workspace = true
+# How far a run has got, for `lrpipe run`'s display.
+lrpipe-reads.workspace = true
+ndarray.workspace = true
+ndarray-npy.workspace = true
+pasta.workspace = true
+rayon.workspace = true
+
+[features]
+default = ["gpu"]
+# Calling on CUDA GPUs (`--device cuda:N`; the CUDA driver and NVRTC are loaded at run time).
+gpu = ["snv-infer/gpu"]
+# Calling on Apple GPUs (`--device metal`; macOS only, the kernels compiled at run time by Metal).
+metal = ["snv-infer/metal"]
+# Sampling CPU profiler: see `LRPIPE_SNV_PROFILE` in main.rs.
+profile = ["dep:pprof"]
+
+[lints.rust]
+missing_debug_implementations = "warn"
+unsafe_op_in_unsafe_fn = "warn"
+unused_qualifications = "warn"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }
+allow_attributes_without_reason = "warn"
+undocumented_unsafe_blocks = "warn"

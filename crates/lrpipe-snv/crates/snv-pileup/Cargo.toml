@@ -1,0 +1,26 @@
+[package]
+name = "snv-pileup"
+description = "Pileup feature tensors and candidate selection"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license = "BSD-3-Clause"
+publish = false
+
+[dependencies]
+flate2.workspace = true
+snv-hts.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+pasta.workspace = true
+
+[lints.rust]
+missing_debug_implementations = "warn"
+unsafe_op_in_unsafe_fn = "warn"
+unused_qualifications = "warn"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }
+allow_attributes_without_reason = "warn"
+undocumented_unsafe_blocks = "warn"

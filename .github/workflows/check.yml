@@ -1,0 +1,44 @@
+# tools/check.sh on GitHub: rustfmt, clippy, every test in release mode and the tests with the
+# oldest supported Rust. A runner has no GPU, Clair3 model or WhatsHap, so those checks skip
+# (saying so); tools/check.sh --release on a machine with them stays the release gate.
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      CARGO_TERM_COLOR: always
+    steps:
+      # Two release builds of the workspace (current Rust and the oldest supported) take about
+      # 20 GB; the runner's Android, .NET and Haskell toolchains make room.
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc /usr/local/.ghcup
+          df -h /
+
+      - uses: actions/checkout@v4
+
+      # The release build's Rust (tools/release_build.sh), so a newer clippy cannot fail a push.
+      - name: Rust 1.98.0
+        run: |
+          rustup toolchain install 1.98.0 --profile minimal --component clippy,rustfmt
+          rustup default 1.98.0
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: tools/check.sh
+        run: tools/check.sh

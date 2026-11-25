@@ -1,0 +1,44 @@
+[package]
+name = "lrpipe-sv"
+version = "0.3.0"
+edition = "2024"
+rust-version = "1.91"
+description = "Fast structural variant calling from long reads (Sniffles2 port)"
+license = "MIT"
+repository = "https://github.com/DylanCosto/lrpipe"
+readme = "README.md"
+keywords = ["bioinformatics", "structural-variants", "long-reads", "sniffles", "genomics"]
+categories = ["science", "command-line-utilities"]
+# The parity fixture, the Sniffles2 sources and the development scripts stay in the repository.
+exclude = ["/tests", "/upstream", "/tools", "/.github"]
+
+[[bin]]
+name = "lrpipe-sv"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1.0.104"
+clap = { version = "4.6.7", features = ["derive"] }
+lrpipe-depth.workspace = true
+libc.workspace = true
+flate2 = { version = "1.1.10", default-features = false, features = ["zlib-rs"] }
+memchr = "2.8.3"
+pasta.workspace = true
+lrpipe-reads.workspace = true
+num-bigint = "0.5.1"
+rayon = "1.12.0"
+# Copy number calls from the same pass's depth.
+lrpipe-cnv.workspace = true
+# Tandem repeat genotypes from the same pass.
+lrpipe-tr.workspace = true
+# Methylation from the same pass.
+lrpipe-methyl.workspace = true
+serde_json = { version = "1.0.154", features = ["preserve_order"] }
+
+[lints.rust]
+unsafe_op_in_unsafe_fn = "warn"
+missing_debug_implementations = "warn"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }
+undocumented_unsafe_blocks = "warn"

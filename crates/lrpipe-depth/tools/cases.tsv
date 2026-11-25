@@ -1,0 +1,43 @@
+# Parity cases: name, input in tests/data, MOSDEPTH_PRECISION (- for default), mosdepth options.
+# tools/parity.sh runs mosdepth and lrpipe-depth on each; tests/parity.rs checks lrpipe-depth against
+# the recorded mosdepth output hashes in tests/data/expected.sha256. Threshold cases use a BED
+# within the contigs: past a contig end mosdepth reads outside its array (undefined output).
+synth_win	synth.bam	-	-n -b 100
+synth_fast	synth.bam	-	-n -x -b 100
+synth_bed	synth.bam	-	-n -b tests/data/regions.bed
+synth_bed_median	synth.bam	-	-n -m -b tests/data/regions.bed
+synth_win_median	synth.bam	-	-n -m -b 75
+synth_thresholds	synth.bam	-	-n -b tests/data/regions_inbounds.bed -T 0,1,2,5
+synth_win_thresholds	synth.bam	-	-n -b 333 -T 3,1
+synth_noby	synth.bam	-	-n
+synth_mapq	synth.bam	-	-n -Q 20 -b 100
+synth_flag0	synth.bam	-	-n -F 0 -b 100
+synth_flag0_fast	synth.bam	-	-n -F 0 -x -b 100
+synth_include	synth.bam	-	-n -F 0 -i 2048 -b 100
+synth_fragment	synth.bam	-	-n -a -b 100
+synth_fraglen	synth.bam	-	-n -l 100 -u 1200 -b 100
+synth_rg	synth.bam	-	-n -R rgB -b 100
+synth_rg2	synth.bam	-	-n -R rgA,rgB -b 100
+synth_chrom	synth.bam	-	-n -c c2 -b 100
+synth_chrom_region	synth.bam	-	-n -c c1:10-200 -b tests/data/regions.bed
+synth_prec4	synth.bam	4	-n -b 100
+synth_prec0	synth.bam	0	-n -b 100
+synth_csi	synth_csi.bam	-	-n -b 100
+synth_cram	synth.cram	-	-n -b 100 -f tests/data/synth.fa
+synth_cram_bed	synth.cram	-	-n -b tests/data/regions_inbounds.bed -T 1,2 -f tests/data/synth.fa
+hifi_win	hifi.bam	-	-n -b 10000
+hifi_fast_q	hifi.bam	-	-n -x -Q 20 -b 10000
+hifi_bed	hifi.bam	-	-n -b tests/data/regions_inbounds.bed -T 1,10,20
+hifi_median	hifi.bam	-	-n -m -b 5000 -c chr22
+ont_win	ont.bam	-	-n -b 10000
+ont_fast	ont.bam	-	-n -x -b 1000 -c chr20
+ont_bed_median	ont.bam	-	-n -m -b tests/data/regions.bed
+ilmn_win	ilmn.bam	-	-n -b 1000 -c chr20
+ilmn_fast	ilmn.bam	-	-n -x -b 1000 -c chr20
+ilmn_fragment	ilmn.bam	-	-n -a -b 1000 -c chr20
+ilmn_dups	ilmn.bam	-	-n -F 0 -b 1000 -c chr20
+ilmn_bed	ilmn.bam	-	-n -b tests/data/regions_inbounds.bed -T 10,30,50
+ontxy_win	ontxy.bam	-	-n -b 20000
+ontxy_bed	ontxy.bam	-	-n -m -b tests/data/regions.bed
+synth_cram_rg	synth.cram	-	-n -R rgB -b 100 -f tests/data/synth.fa
+synth_cram_mapq	synth.cram	-	-n -Q 20 -F 0 -x -b 100 -f tests/data/synth.fa

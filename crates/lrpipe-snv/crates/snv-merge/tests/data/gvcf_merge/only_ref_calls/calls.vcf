@@ -1,0 +1,4 @@
+##fileformat=VCFv4.2
+##contig=<ID=chrT,length=400>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SAMPLE
+chrT	5	.	C	.	12.30	RefCall	F	GT:GQ:DP:AD:AF:PL	0/0:12:5:3:1.0000:990

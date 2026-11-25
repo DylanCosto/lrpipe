@@ -1,0 +1,211 @@
+== lrpipe tr and TRGT 5.1.0 against GIAB HG002 TR v1.0.1 Tier 1
+ tr-lrpipe.vcf.gz, every Tier 1 region
+size	regions	not_called	ambiguous	scored	call_rate	exact	exact_share	exact_of_all	within_1bp	within_1bp_share
+0	1348207	1145197	269	202741	0.1504	195507	0.9643	0.1450	201099	0.9919
+1-4	187490	74334	2086	111070	0.5924	92205	0.8302	0.4918	104943	0.9448
+5-49	90807	17596	1972	71239	0.7845	61859	0.8683	0.6812	64966	0.9119
+>=50	11602	2947	207	8448	0.7282	7011	0.8299	0.6043	7307	0.8649
+all	1638106	1240074	4534	393498	0.2402	356582	0.9062	0.2177	378315	0.9614
+ tr-trgt.vcf.gz, every Tier 1 region
+size	regions	not_called	ambiguous	scored	call_rate	exact	exact_share	exact_of_all	within_1bp	within_1bp_share
+0	1348207	1145215	590	202402	0.1501	185611	0.9170	0.1377	199811	0.9872
+1-4	187490	74362	2838	110290	0.5882	90387	0.8195	0.4821	103615	0.9395
+5-49	90807	17607	2188	71012	0.7820	60550	0.8527	0.6668	64178	0.9038
+>=50	11602	2942	244	8416	0.7254	6824	0.8108	0.5882	7207	0.8563
+all	1638106	1240126	5860	392120	0.2394	343372	0.8757	0.2096	374811	0.9559
+ on the regions both score
+  lrpipe
+size	regions	not_called	ambiguous	scored	call_rate	exact	exact_share	exact_of_all	within_1bp	within_1bp_share
+0	202367	0	0	202367	1.0000	195340	0.9653	0.9653	200735	0.9919
+1-4	110246	0	0	110246	1.0000	91783	0.8325	0.8325	104212	0.9453
+5-49	70974	0	0	70974	1.0000	61741	0.8699	0.8699	64787	0.9128
+>=50	8397	0	0	8397	1.0000	6996	0.8332	0.8332	7285	0.8676
+all	391984	0	0	391984	1.0000	355860	0.9078	0.9078	377019	0.9618
+  TRGT
+size	regions	not_called	ambiguous	scored	call_rate	exact	exact_share	exact_of_all	within_1bp	within_1bp_share
+0	202367	0	0	202367	1.0000	185592	0.9171	0.9171	199788	0.9873
+1-4	110246	0	0	110246	1.0000	90377	0.8198	0.8198	103587	0.9396
+5-49	70974	0	0	70974	1.0000	60546	0.8531	0.8531	64170	0.9041
+>=50	8397	0	0	8397	1.0000	6823	0.8126	0.8126	7204	0.8579
+all	391984	0	0	391984	1.0000	343338	0.8759	0.8759	374749	0.9560
+== lrpipe snv against Clair3 2.0.3 (PASS calls: position, alleles, genotype)
+ snv-ont-cpu-exact against Clair3 CPU
+agreement 0.99984 jaccard 0.99966
+ snv-ont-cpu-approx against Clair3 CPU
+agreement 0.99780 jaccard 0.99499
+ snv-hifi-gpu against Clair3 GPU
+agreement 0.99707 jaccard 0.99419
+ exact against approximate, CPU
+agreement 0.99795 jaccard 0.99532
+agreement 0.99967 jaccard 0.99913
+== lrpipe snv and Clair3 against GIAB v4.2.1 (rtg vcfeval, stratified)
+ snv-ont-cpu-exact
+
+Total records : 4000097
+Filtered due to not a SNP : 569264
+Remaining records : 3430833
+
+Total records : 4000097
+Filtered due to simple SNP : 3430833
+Remaining records : 569264
+type	stratification	TP	FN	FP	recall	precision	F1
+SNP	all	3316653	10841	8834	0.99674	0.99734	0.99704
+SNP	all difficult regions	590348	4797	7524	0.99194	0.98742	0.98967
+SNP	not in difficult regions	2726305	6044	1310	0.99779	0.99952	0.99865
+SNP	homopolymers >=7 bp	94979	1340	1459	0.98609	0.98487	0.98548
+SNP	low mappability and segdups	255377	2624	5420	0.98983	0.97922	0.98450
+SNP	segdups	119871	2257	5307	0.98152	0.95761	0.96942
+SNP	MHC	19282	260	53	0.98670	0.99726	0.99195
+INDEL	all	441851	62570	44077	0.87596	0.90929	0.89231
+INDEL	all difficult regions	286686	61797	43698	0.82267	0.86774	0.84460
+INDEL	not in difficult regions	155165	773	379	0.99504	0.99756	0.99630
+INDEL	homopolymers >=7 bp	163678	58893	41215	0.73540	0.79883	0.76580
+INDEL	low mappability and segdups	15849	418	444	0.97430	0.97275	0.97353
+INDEL	segdups	9856	315	404	0.96903	0.96063	0.96481
+INDEL	MHC	1577	129	188	0.92438	0.89354	0.90870
+ snv-ont-cpu-approx
+type	stratification	TP	FN	FP	recall	precision	F1
+SNP	all	3316772	10722	8900	0.99678	0.99732	0.99705
+SNP	all difficult regions	590399	4746	7574	0.99203	0.98733	0.98967
+SNP	not in difficult regions	2726373	5976	1326	0.99781	0.99951	0.99866
+SNP	homopolymers >=7 bp	94981	1338	1459	0.98611	0.98487	0.98549
+SNP	low mappability and segdups	255422	2579	5469	0.99000	0.97904	0.98449
+SNP	segdups	119912	2216	5315	0.98186	0.95756	0.96955
+SNP	MHC	19281	261	55	0.98664	0.99716	0.99187
+INDEL	all	441816	62605	44134	0.87589	0.90918	0.89222
+INDEL	all difficult regions	286653	61830	43757	0.82257	0.86757	0.84447
+INDEL	not in difficult regions	155163	775	377	0.99503	0.99758	0.99630
+INDEL	homopolymers >=7 bp	163657	58914	41261	0.73530	0.79864	0.76566
+INDEL	low mappability and segdups	15848	419	447	0.97424	0.97257	0.97341
+INDEL	segdups	9857	314	404	0.96913	0.96063	0.96486
+INDEL	MHC	1576	130	188	0.92380	0.89348	0.90839
+ snv-ont-gpu
+type	stratification	TP	FN	FP	recall	precision	F1
+SNP	all	3316576	10918	8750	0.99672	0.99737	0.99704
+SNP	all difficult regions	590333	4812	7429	0.99191	0.98757	0.98974
+SNP	not in difficult regions	2726243	6106	1321	0.99777	0.99952	0.99864
+SNP	homopolymers >=7 bp	94972	1347	1454	0.98602	0.98492	0.98547
+SNP	low mappability and segdups	255364	2637	5334	0.98978	0.97954	0.98463
+SNP	segdups	119868	2260	5221	0.98149	0.95826	0.96974
+SNP	MHC	19282	260	53	0.98670	0.99726	0.99195
+INDEL	all	441703	62718	44103	0.87566	0.90922	0.89213
+INDEL	all difficult regions	286537	61946	43724	0.82224	0.86761	0.84432
+INDEL	not in difficult regions	155166	772	379	0.99505	0.99756	0.99630
+INDEL	homopolymers >=7 bp	163513	59058	41234	0.73466	0.79860	0.76529
+INDEL	low mappability and segdups	15848	419	452	0.97424	0.97227	0.97326
+INDEL	segdups	9858	313	412	0.96923	0.95989	0.96453
+INDEL	MHC	1577	129	188	0.92438	0.89354	0.90870
+ clair3-ont-cpu
+type	stratification	TP	FN	FP	recall	precision	F1
+SNP	all	3316646	10848	8838	0.99674	0.99734	0.99704
+SNP	all difficult regions	590346	4799	7524	0.99194	0.98742	0.98967
+SNP	not in difficult regions	2726300	6049	1314	0.99779	0.99952	0.99865
+SNP	homopolymers >=7 bp	94979	1340	1460	0.98609	0.98486	0.98547
+SNP	low mappability and segdups	255371	2630	5420	0.98981	0.97922	0.98448
+SNP	segdups	119870	2258	5307	0.98151	0.95761	0.96941
+SNP	MHC	19282	260	53	0.98670	0.99726	0.99195
+INDEL	all	441863	62558	44036	0.87598	0.90937	0.89236
+INDEL	all difficult regions	286699	61784	43657	0.82271	0.86785	0.84468
+INDEL	not in difficult regions	155164	774	379	0.99504	0.99756	0.99630
+INDEL	homopolymers >=7 bp	163692	58879	41173	0.73546	0.79901	0.76592
+INDEL	low mappability and segdups	15849	418	444	0.97430	0.97275	0.97353
+INDEL	segdups	9856	315	404	0.96903	0.96063	0.96481
+INDEL	MHC	1577	129	188	0.92438	0.89354	0.90870
+ snv-hifi-cpu-exact
+
+Total records : 4048342
+Filtered due to not a SNP : 588091
+Remaining records : 3460251
+
+Total records : 4048342
+Filtered due to simple SNP : 3460251
+Remaining records : 588091
+type	stratification	TP	FN	FP	recall	precision	F1
+SNP	all	3362217	2910	6714	0.99914	0.99801	0.99857
+SNP	all difficult regions	610419	2618	5823	0.99573	0.99055	0.99313
+SNP	not in difficult regions	2751798	292	891	0.99989	0.99968	0.99979
+SNP	homopolymers >=7 bp	99730	122	932	0.99878	0.99074	0.99474
+SNP	low mappability and segdups	256926	2333	4261	0.99100	0.98369	0.98733
+SNP	segdups	118797	2303	4147	0.98098	0.96627	0.97357
+SNP	MHC	20055	122	37	0.99395	0.99816	0.99605
+INDEL	all	515786	9611	23623	0.98171	0.95621	0.96879
+INDEL	all difficult regions	358173	9348	22582	0.97456	0.94070	0.95733
+INDEL	not in difficult regions	157613	263	1041	0.99833	0.99344	0.99588
+INDEL	homopolymers >=7 bp	221610	8186	21159	0.96438	0.91285	0.93791
+INDEL	low mappability and segdups	17035	297	695	0.98286	0.96080	0.97171
+INDEL	segdups	10593	238	596	0.97803	0.94673	0.96213
+INDEL	MHC	1586	88	190	0.94743	0.89308	0.91945
+ snv-hifi-cpu-approx
+type	stratification	TP	FN	FP	recall	precision	F1
+SNP	all	3362220	2907	6711	0.99914	0.99801	0.99857
+SNP	all difficult regions	610422	2615	5819	0.99573	0.99056	0.99314
+SNP	not in difficult regions	2751798	292	892	0.99989	0.99968	0.99978
+SNP	homopolymers >=7 bp	99730	122	930	0.99878	0.99076	0.99475
+SNP	low mappability and segdups	256929	2330	4260	0.99101	0.98369	0.98734
+SNP	segdups	118799	2301	4147	0.98100	0.96627	0.97358
+SNP	MHC	20055	122	37	0.99395	0.99816	0.99605
+INDEL	all	515797	9600	23623	0.98173	0.95621	0.96880
+INDEL	all difficult regions	358185	9336	22584	0.97460	0.94069	0.95735
+INDEL	not in difficult regions	157612	264	1039	0.99833	0.99345	0.99588
+INDEL	homopolymers >=7 bp	221623	8173	21158	0.96443	0.91286	0.93794
+INDEL	low mappability and segdups	17036	296	696	0.98292	0.96075	0.97171
+INDEL	segdups	10594	237	597	0.97812	0.94665	0.96213
+INDEL	MHC	1586	88	190	0.94743	0.89308	0.91945
+ snv-hifi-gpu
+type	stratification	TP	FN	FP	recall	precision	F1
+SNP	all	3362233	2894	6643	0.99914	0.99803	0.99858
+SNP	all difficult regions	610427	2610	5759	0.99574	0.99065	0.99319
+SNP	not in difficult regions	2751806	284	884	0.99990	0.99968	0.99979
+SNP	homopolymers >=7 bp	99731	121	929	0.99879	0.99077	0.99476
+SNP	low mappability and segdups	256921	2338	4200	0.99098	0.98392	0.98744
+SNP	segdups	118798	2302	4083	0.98099	0.96677	0.97383
+SNP	MHC	20055	122	37	0.99395	0.99816	0.99605
+INDEL	all	515812	9585	23632	0.98176	0.95620	0.96881
+INDEL	all difficult regions	358195	9326	22589	0.97462	0.94068	0.95735
+INDEL	not in difficult regions	157617	259	1043	0.99836	0.99343	0.99589
+INDEL	homopolymers >=7 bp	221635	8161	21170	0.96449	0.91282	0.93794
+INDEL	low mappability and segdups	17034	298	687	0.98281	0.96123	0.97190
+INDEL	segdups	10594	237	587	0.97812	0.94750	0.96257
+INDEL	MHC	1586	88	190	0.94743	0.89308	0.91945
+ clair3-hifi-gpu
+type	stratification	TP	FN	FP	recall	precision	F1
+SNP	all	3362238	2889	6709	0.99914	0.99801	0.99857
+SNP	all difficult regions	610422	2615	5854	0.99573	0.99050	0.99311
+SNP	not in difficult regions	2751816	274	855	0.99990	0.99969	0.99979
+SNP	homopolymers >=7 bp	99730	122	933	0.99878	0.99073	0.99474
+SNP	low mappability and segdups	256916	2343	4297	0.99096	0.98355	0.98724
+SNP	segdups	118796	2304	4182	0.98097	0.96600	0.97343
+SNP	MHC	20055	122	37	0.99395	0.99816	0.99605
+INDEL	all	515786	9611	23665	0.98171	0.95614	0.96875
+INDEL	all difficult regions	358168	9353	22633	0.97455	0.94057	0.95726
+INDEL	not in difficult regions	157618	258	1032	0.99837	0.99350	0.99592
+INDEL	homopolymers >=7 bp	221610	8186	21201	0.96438	0.91269	0.93782
+INDEL	low mappability and segdups	17035	297	702	0.98286	0.96042	0.97151
+INDEL	segdups	10593	238	604	0.97803	0.94606	0.96178
+INDEL	MHC	1586	88	190	0.94743	0.89308	0.91945
+== phasing accuracy: lrpipe's phased HG002 HiFi calls against GIAB v4.2.1's phased genotypes
+                 --> covered variants:         0
+       non-singleton blocks in lrpipe:       291
+                 --> covered variants:    106700
+    non-singleton intersection blocks:         0
+                 --> covered variants:         0
+              ALL INTERSECTION BLOCKS: ---------
+    phased pairs of variants assessed:         0
+                        switch errors:         0
+                    switch error rate:        --
+            switch/flip decomposition:       0/0
+                     switch/flip rate:        --
+          Block-wise Hamming distance:         0
+      Block-wise Hamming distance [%]:        --
+                  Different genotypes:         0
+              Different genotypes [%]:        --
+           LARGEST INTERSECTION BLOCK: ---------
+    phased pairs of variants assessed:         0
+                        switch errors:         0
+                    switch error rate:        --
+            switch/flip decomposition:       0/0
+                     switch/flip rate:        --
+                     Hamming distance:         0
+                 Hamming distance [%]:        --
+                  Different genotypes:         0
+              Different genotypes [%]:        --

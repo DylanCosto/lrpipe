@@ -1,0 +1,9 @@
+# GitHub's language statistics count the code lrpipe ships: Rust, and the CUDA and Metal
+# kernels. Development scripts, test oracles, test data and the vendored Sniffles2 source (for
+# parity tests) are left out of them; the files are otherwise shown as usual.
+*.py linguist-detectable=false
+*.sh linguist-detectable=false
+*.c linguist-detectable=false
+*.cpp linguist-detectable=false
+Dockerfile linguist-detectable=false
+**/tests/data/** linguist-detectable=false

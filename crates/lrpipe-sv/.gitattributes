@@ -1,0 +1,5 @@
+# The parity fixture is compared byte for byte: never convert line endings.
+tests/data/** -text
+
+# Sniffles2's Python source, kept as the reference for the port: not counted as this project's code.
+upstream/** linguist-vendored

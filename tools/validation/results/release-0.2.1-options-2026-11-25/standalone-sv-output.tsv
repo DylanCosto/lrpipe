@@ -1,0 +1,9 @@
+vcf_name	snf	checked	pass	expected_refusal	late_unknown_par	misnamed_index	other_failure	snf_roundtrips
+calls.vcf	no	64	64	0	0	0	0	0
+calls.vcf	yes	64	64	0	0	0	0	64
+calls.vcf.bgz	no	64	0	0	0	64	0	0
+calls.vcf.bgz	yes	64	0	0	0	64	0	64
+calls.vcf.gz	no	64	64	0	0	0	0	0
+calls.vcf.gz	yes	64	64	0	0	0	0	64
+none	no	64	0	64	0	0	0	0
+none	yes	64	64	0	0	0	0	64

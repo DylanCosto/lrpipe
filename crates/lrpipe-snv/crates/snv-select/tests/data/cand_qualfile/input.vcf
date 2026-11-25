@@ -1,0 +1,12 @@
+##fileformat=VCFv4.2
+##source=Clair3
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SAMPLE
+chr1	100	.	A	C	5	PASS	P	GT:GQ:DP:AD:AF	0/1:5:10:5,5:0.5
+chr1	110	.	A	C	4.999	PASS	P	GT:GQ:DP:AD:AF	0/1:5:10:5,5:0.5
+chr1	120	.	A	.	2.5	RefCall	P	GT:GQ:DP:AD:AF	0/0:5:10:5,5:0.5
+chr1	130	.	A	.	2.4	RefCall	P	GT:GQ:DP:AD:AF	0/0:5:10:5,5:0.5
+chr1	140	.	A	C	inf	PASS	P	GT:GQ:DP:AD:AF	0/1:5:10:5,5:0.5
+chr1	150	.	A	C	-inf	PASS	P	GT:GQ:DP:AD:AF	0/1:5:10:5,5:0.5
+chr1	160	.	A	.	 1.0	RefCall	P	GT:GQ:DP:AD:AF	0/0:5:10:5,5:0.5
+chr1	170	.	A	C	nan	PASS	P	GT:GQ:DP:AD:AF	0/1:5:10:5,5:0.5
+chr1	180	.	A	.	NaN	RefCall	P	GT:GQ:DP:AD:AF	0/0:5:10:5,5:0.5

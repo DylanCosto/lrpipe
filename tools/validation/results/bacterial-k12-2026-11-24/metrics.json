@@ -1,0 +1,459 @@
+{
+  "code_revision": "72a248a1c4f069d01f08670731b8282cfea23224",
+  "binary_sha256": "624957c41d8a259de4f1e286c09f4764ff72e6e709b77f4f6690a9359b4229b0",
+  "organism": "Escherichia coli K-12 MG1655",
+  "reference_accession": "NC_000913.3",
+  "reference_bases": 4641652,
+  "reference_sha256": "53bb6a51b6e92139ced1e38f74b7938781027c52200922ff03718c2237d23bb4",
+  "threads": 8,
+  "memory_budget_gib": 32,
+  "bonefish_version": "0.5.0",
+  "source_urls": {
+    "ont": "https://www.ebi.ac.uk/ena/browser/view/SRR30993121",
+    "hifi": "https://www.ncbi.nlm.nih.gov/sra/SRX7636524"
+  },
+  "runs": {
+    "ont-cpu": {
+      "device": "cpu",
+      "input": {
+        "accession": "SRR30993121",
+        "subset": "SRR30993121.smoke.fastq.gz",
+        "reads": 12095,
+        "bases": 125002739,
+        "nominal_depth": 26.930657231520158,
+        "sha256": "863b5cb7d9dc0da7839a8554a0144d78aaca22f70431ea8809a48b7289ac602e"
+      },
+      "model": "r1041_e82_400bps_sup_v500",
+      "stages": {
+        "align": {
+          "status": "succeeded",
+          "wall_seconds": 2.875
+        },
+        "snv": {
+          "status": "succeeded",
+          "wall_seconds": 3.817
+        },
+        "merge": {
+          "status": "succeeded",
+          "wall_seconds": 0.003
+        },
+        "qc": {
+          "status": "succeeded",
+          "wall_seconds": 0.002
+        }
+      },
+      "wall_seconds": 7.0,
+      "mapped_primary_reads": 12095,
+      "covered_reference_bases": 1181632,
+      "covered_reference_percent": 25.457143275713044,
+      "mean_reference_depth": 25.6184,
+      "vcfs": {
+        "merged_vcf": {
+          "records": 2,
+          "reference_blocks": 0,
+          "variant_records": 2,
+          "pass_variants": 2,
+          "pass_snvs": 2,
+          "pass_small_indels": 0,
+          "pl_checked": 2,
+          "reference_block_overlaps": 0,
+          "genotypes": {
+            "1": 2
+          },
+          "ref_and_index_valid": true
+        },
+        "snv_vcf": {
+          "records": 2,
+          "reference_blocks": 0,
+          "variant_records": 2,
+          "pass_variants": 2,
+          "pass_snvs": 2,
+          "pass_small_indels": 0,
+          "pl_checked": 2,
+          "reference_block_overlaps": 0,
+          "genotypes": {
+            "1": 2
+          },
+          "ref_and_index_valid": true
+        },
+        "gvcf": {
+          "records": 7043,
+          "reference_blocks": 7041,
+          "variant_records": 2,
+          "pass_variants": 2,
+          "pass_snvs": 2,
+          "pass_small_indels": 0,
+          "pl_checked": 5041,
+          "reference_block_overlaps": 0,
+          "genotypes": {
+            "0": 5039,
+            ".": 2002,
+            "1": 2
+          },
+          "ref_and_index_valid": true
+        }
+      },
+      "resume_stages": {
+        "align": {
+          "status": "skipped",
+          "wall_seconds": 2.875
+        },
+        "snv": {
+          "status": "skipped",
+          "wall_seconds": 3.817
+        },
+        "merge": {
+          "status": "skipped",
+          "wall_seconds": 0.003
+        },
+        "qc": {
+          "status": "skipped",
+          "wall_seconds": 0.002
+        }
+      },
+      "switch_from_human_defaults": {
+        "before_records": 0,
+        "after_pass_variants": 2,
+        "stages": {
+          "snv": {
+            "status": "succeeded",
+            "wall_seconds": 3.802
+          },
+          "merge": {
+            "status": "succeeded",
+            "wall_seconds": 0.003
+          },
+          "qc": {
+            "status": "succeeded",
+            "wall_seconds": 0.002
+          }
+        }
+      }
+    },
+    "hifi-cpu": {
+      "device": "cpu",
+      "input": {
+        "accession": "SRR10971019",
+        "subset": "SRR10971019.smoke.fastq",
+        "reads": 8580,
+        "bases": 125000734,
+        "nominal_depth": 26.930225273243234,
+        "sha256": "a100ae75554014064ef382eee07ab499599f6f34ebb16917c0533e28b61158c8"
+      },
+      "model": "hifi_sequel2",
+      "stages": {
+        "align": {
+          "status": "succeeded",
+          "wall_seconds": 1.864
+        },
+        "snv": {
+          "status": "succeeded",
+          "wall_seconds": 6.314
+        },
+        "merge": {
+          "status": "succeeded",
+          "wall_seconds": 0.003
+        },
+        "qc": {
+          "status": "succeeded",
+          "wall_seconds": 0.002
+        }
+      },
+      "wall_seconds": 8.6,
+      "mapped_primary_reads": 8580,
+      "covered_reference_bases": 4641651,
+      "covered_reference_percent": 99.99997845594629,
+      "mean_reference_depth": 26.5603,
+      "vcfs": {
+        "merged_vcf": {
+          "records": 3,
+          "reference_blocks": 0,
+          "variant_records": 3,
+          "pass_variants": 3,
+          "pass_snvs": 1,
+          "pass_small_indels": 2,
+          "pl_checked": 3,
+          "reference_block_overlaps": 0,
+          "genotypes": {
+            "1": 3
+          },
+          "ref_and_index_valid": true
+        },
+        "snv_vcf": {
+          "records": 3,
+          "reference_blocks": 0,
+          "variant_records": 3,
+          "pass_variants": 3,
+          "pass_snvs": 1,
+          "pass_small_indels": 2,
+          "pl_checked": 3,
+          "reference_block_overlaps": 0,
+          "genotypes": {
+            "1": 3
+          },
+          "ref_and_index_valid": true
+        },
+        "gvcf": {
+          "records": 78550,
+          "reference_blocks": 78547,
+          "variant_records": 3,
+          "pass_variants": 3,
+          "pass_snvs": 1,
+          "pass_small_indels": 2,
+          "pl_checked": 73284,
+          "reference_block_overlaps": 0,
+          "genotypes": {
+            "0": 73281,
+            ".": 5266,
+            "1": 3
+          },
+          "ref_and_index_valid": true
+        }
+      },
+      "resume_stages": {
+        "align": {
+          "status": "skipped",
+          "wall_seconds": 1.864
+        },
+        "snv": {
+          "status": "skipped",
+          "wall_seconds": 6.314
+        },
+        "merge": {
+          "status": "skipped",
+          "wall_seconds": 0.003
+        },
+        "qc": {
+          "status": "skipped",
+          "wall_seconds": 0.002
+        }
+      }
+    },
+    "ont-cuda": {
+      "device": "cuda:0",
+      "input": {
+        "accession": "SRR30993121",
+        "subset": "SRR30993121.smoke.fastq.gz",
+        "reads": 12095,
+        "bases": 125002739,
+        "nominal_depth": 26.930657231520158,
+        "sha256": "863b5cb7d9dc0da7839a8554a0144d78aaca22f70431ea8809a48b7289ac602e"
+      },
+      "model": "r1041_e82_400bps_sup_v500",
+      "stages": {
+        "align": {
+          "status": "succeeded",
+          "wall_seconds": 2.733
+        },
+        "snv": {
+          "status": "succeeded",
+          "wall_seconds": 6.883
+        },
+        "merge": {
+          "status": "succeeded",
+          "wall_seconds": 0.003
+        },
+        "qc": {
+          "status": "succeeded",
+          "wall_seconds": 0.002
+        }
+      },
+      "wall_seconds": 9.9,
+      "mapped_primary_reads": 12095,
+      "covered_reference_bases": 1181632,
+      "covered_reference_percent": 25.457143275713044,
+      "mean_reference_depth": 25.6184,
+      "vcfs": {
+        "merged_vcf": {
+          "records": 2,
+          "reference_blocks": 0,
+          "variant_records": 2,
+          "pass_variants": 2,
+          "pass_snvs": 2,
+          "pass_small_indels": 0,
+          "pl_checked": 2,
+          "reference_block_overlaps": 0,
+          "genotypes": {
+            "1": 2
+          },
+          "ref_and_index_valid": true
+        },
+        "snv_vcf": {
+          "records": 2,
+          "reference_blocks": 0,
+          "variant_records": 2,
+          "pass_variants": 2,
+          "pass_snvs": 2,
+          "pass_small_indels": 0,
+          "pl_checked": 2,
+          "reference_block_overlaps": 0,
+          "genotypes": {
+            "1": 2
+          },
+          "ref_and_index_valid": true
+        },
+        "gvcf": {
+          "records": 7043,
+          "reference_blocks": 7041,
+          "variant_records": 2,
+          "pass_variants": 2,
+          "pass_snvs": 2,
+          "pass_small_indels": 0,
+          "pl_checked": 5041,
+          "reference_block_overlaps": 0,
+          "genotypes": {
+            "0": 5039,
+            ".": 2002,
+            "1": 2
+          },
+          "ref_and_index_valid": true
+        }
+      },
+      "resume_stages": {
+        "align": {
+          "status": "skipped",
+          "wall_seconds": 2.733
+        },
+        "snv": {
+          "status": "skipped",
+          "wall_seconds": 6.883
+        },
+        "merge": {
+          "status": "skipped",
+          "wall_seconds": 0.003
+        },
+        "qc": {
+          "status": "skipped",
+          "wall_seconds": 0.002
+        }
+      },
+      "cpu_pass_keys_shared": 2,
+      "cpu_pass_keys_union": 2
+    }
+  },
+  "ont_targeted": {
+    "region_bed": [
+      "NC_000913.3",
+      346087,
+      346487
+    ],
+    "runs": {
+      "target-vcf-only": {
+        "vcf": {
+          "records": 1,
+          "reference_blocks": 0,
+          "variant_records": 1,
+          "pass_variants": 1,
+          "pass_snvs": 1,
+          "pass_small_indels": 0,
+          "pl_checked": 0,
+          "reference_block_overlaps": 0,
+          "genotypes": {
+            "1": 1
+          },
+          "ref_and_index_valid": true
+        },
+        "stages": {
+          "snv": {
+            "status": "succeeded",
+            "wall_seconds": 0.11
+          },
+          "merge": {
+            "status": "succeeded",
+            "wall_seconds": 0.003
+          },
+          "qc": {
+            "status": "succeeded",
+            "wall_seconds": 0.002
+          }
+        },
+        "pileup_only_fallback": true
+      },
+      "target-with-gvcf": {
+        "vcf": {
+          "records": 1,
+          "reference_blocks": 0,
+          "variant_records": 1,
+          "pass_variants": 1,
+          "pass_snvs": 1,
+          "pass_small_indels": 0,
+          "pl_checked": 1,
+          "reference_block_overlaps": 0,
+          "genotypes": {
+            "1": 1
+          },
+          "ref_and_index_valid": true
+        },
+        "stages": {
+          "snv": {
+            "status": "succeeded",
+            "wall_seconds": 0.114
+          },
+          "merge": {
+            "status": "succeeded",
+            "wall_seconds": 0.003
+          },
+          "qc": {
+            "status": "succeeded",
+            "wall_seconds": 0.002
+          }
+        },
+        "pileup_only_fallback": true,
+        "gvcf": {
+          "records": 5,
+          "reference_blocks": 4,
+          "variant_records": 1,
+          "pass_variants": 1,
+          "pass_snvs": 1,
+          "pass_small_indels": 0,
+          "pl_checked": 4,
+          "reference_block_overlaps": 0,
+          "genotypes": {
+            "0": 3,
+            "1": 1,
+            ".": 1
+          },
+          "ref_and_index_valid": true
+        }
+      }
+    }
+  },
+  "two_short_contigs": {
+    "contig_lengths": {
+      "fragmentA.1": 20001,
+      "fragmentB.1": 20001
+    },
+    "pass_variants": {
+      "K12-fragments.vcf.gz": {
+        "fragmentA.1": 1,
+        "fragmentB.1": 1
+      },
+      "merge_output.gvcf.gz": {
+        "fragmentA.1": 1,
+        "fragmentB.1": 1
+      }
+    },
+    "expected_pass_snv_on_each_contig": true
+  },
+  "local_release_checks": {
+    "command": "bash tools/check.sh --release",
+    "workspace_rust_1_98": {
+      "passed": 721,
+      "failed": 0,
+      "ignored": 0
+    },
+    "inference_without_gpu": {
+      "passed": 25,
+      "failed": 0,
+      "ignored": 0
+    },
+    "passed": 9,
+    "failed": 0,
+    "skipped": 0,
+    "workspace_rust_1_91": {
+      "passed": 721,
+      "failed": 0,
+      "ignored": 0
+    }
+  }
+}

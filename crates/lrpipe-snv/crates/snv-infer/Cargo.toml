@@ -1,0 +1,43 @@
+[package]
+name = "snv-infer"
+description = "The networks' inference in Rust, on the CPU, CUDA GPUs and Apple GPUs"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license = "BSD-3-Clause"
+publish = false
+
+[dependencies]
+gemm.workspace = true
+cudarc = { workspace = true, optional = true }
+# dlopen, to load NVRTC from a path (gpu.rs).
+libc = { workspace = true, optional = true }
+thiserror.workspace = true
+
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2 = { workspace = true, optional = true }
+objc2-foundation = { workspace = true, optional = true }
+objc2-metal = { workspace = true, optional = true }
+
+[dev-dependencies]
+ndarray.workspace = true
+ndarray-npy.workspace = true
+sha2 = "0.11.1"
+
+[features]
+default = ["gpu"]
+# The Rust backend on CUDA GPUs. Needs no CUDA to build: the driver and NVRTC load at run time.
+gpu = ["dep:cudarc", "dep:libc"]
+# The Rust backend on Apple GPUs (macOS only; elsewhere it does nothing). Needs no Xcode: the
+# Metal framework compiles the kernels at run time.
+metal = ["dep:objc2", "dep:objc2-foundation", "dep:objc2-metal"]
+
+[lints.rust]
+missing_debug_implementations = "warn"
+unsafe_op_in_unsafe_fn = "warn"
+unused_qualifications = "warn"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }
+allow_attributes_without_reason = "warn"
+undocumented_unsafe_blocks = "warn"

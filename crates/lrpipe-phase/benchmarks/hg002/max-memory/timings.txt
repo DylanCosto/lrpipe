@@ -1,0 +1,19 @@
+# whatshap-rs phase, whole-genome HG002, /usr/bin/time (KB = KiB). Output identical to WhatsHap 2.8
+# (VCF and read list) in every run except the [queue 8] runs, which were not compared.
+# [fix] commit 036632d; [fix+trace] 036632d plus a thread logging memory once a second;
+# [queue 8] limit off, input queue of 8 as in 036632d; [aa47266] before 036632d (input queue 2 x threads)
+pacbio -t 24, default limit [fix+trace]: 138.76 s wall, 1612% CPU, 18507172 KB max RSS
+pacbio -t 24, --max-memory 12000 [fix+trace]: 156.76 s wall, 1413% CPU, 12716428 KB max RSS
+pacbio -t 24, limit off [queue 8]: 136.06 s wall, 1659% CPU, 18402848 KB max RSS
+illumina -t 24, default limit [fix+trace]: 274.91 s wall, 1364% CPU, 35580172 KB max RSS
+illumina -t 24, default limit [fix]: 278.81 s wall, 3358.31 s user, 1396% CPU, 34463040 KB max RSS
+illumina -t 24, --max-memory 12000 [fix+trace]: 1884.92 s wall, 221% CPU, 9200176 KB max RSS
+illumina -t 24, limit off [aa47266]: 258.57 s wall, 3132.90 s user, 1358% CPU, 43366844 KB max RSS
+illumina -t 24, limit off [aa47266]: 255.37 s wall, 3128.01 s user, 1372% CPU, 42881776 KB max RSS
+ont -t 24, default limit [fix+trace]: 186.19 s wall, 1862% CPU, 16666116 KB max RSS
+ont -t 24, --max-memory 12000 [fix+trace]: 193.13 s wall, 1797% CPU, 13860016 KB max RSS
+ont -t 24, --max-memory 12000 [fix]: 199.60 s wall, 3315.48 s user, 1737% CPU, 14150468 KB max RSS
+ont -t 24, limit off [queue 8]: 184.95 s wall, 1876% CPU, 16934644 KB max RSS
+pacbio -t 8, default limit [fix]: 250.50 s wall, 1872.47 s user, 815% CPU, 7255896 KB max RSS
+illumina -t 8, default limit [fix]: 633.65 s wall, 3147.42 s user, 574% CPU, 23408964 KB max RSS
+ont -t 8, default limit [fix]: 317.26 s wall, 3063.18 s user, 1009% CPU, 7159148 KB max RSS

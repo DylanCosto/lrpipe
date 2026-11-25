@@ -1,0 +1,49 @@
+# name	pileup VCF	full-alignment VCF	extra MergeVcf flags (after the pipeline's defaults; paths relative to inputs/)
+default	pileup.vcf.gz	fa.vcf.gz	--ctgName chr20
+ref_calls	pileup.vcf.gz	fa.vcf.gz	--ctgName chr20 --print_ref_calls True
+qual0	pileup.vcf.gz	fa.vcf.gz	--ctgName chr20 --qual 0
+qual20	pileup.vcf.gz	fa.vcf.gz	--ctgName chr20 --qual 20 --print_ref_calls True
+hap_precise	pileup.vcf.gz	fa.vcf.gz	--ctgName chr20 --haploid_precise True
+hap_precise_ref	pileup.vcf.gz	fa.vcf.gz	--ctgName chr20 --haploid_precise True --print_ref_calls True
+hap_sensitive	pileup.vcf.gz	fa.vcf.gz	--ctgName chr20 --haploid_sensitive True
+hap_sensitive_ref	pileup.vcf.gz	fa.vcf.gz	--ctgName chr20 --haploid_sensitive True --print_ref_calls True
+hap_both	pileup.vcf.gz	fa.vcf.gz	--ctgName chr20 --haploid_precise True --haploid_sensitive True
+male_autosome	pileup.vcf.gz	fa.vcf.gz	--ctgName chr20 --gender male
+male_x	pileup_x.vcf	fa_x.vcf	--ctgName chrX --gender male
+male_x_ref	pileup_x.vcf	fa_x.vcf	--ctgName chrX --gender male --print_ref_calls True
+male_x_par	pileup_x.vcf	fa_x.vcf	--ctgName chrX --gender male --par_regions_bed par.bed.gz --print_ref_calls True
+male_x_par_sensitive	pileup_x.vcf	fa_x.vcf	--ctgName chrX --gender male --par_regions_bed par.bed.gz --haploid_sensitive True
+male_x_par_missing	pileup_x.vcf	fa_x.vcf	--ctgName chrX --gender male --par_regions_bed missing.bed
+female_x	pileup_x.vcf	fa_x.vcf	--ctgName chrX --gender female --par_regions_bed par.bed.gz
+unknown_x_par	pileup_x.vcf	fa_x.vcf	--ctgName chrX --par_regions_bed par.bed.gz
+no_fa_calls	pileup.vcf.gz	fa_header.vcf	--ctgName chr20
+no_fa_calls_ref	pileup.vcf.gz	fa_header.vcf	--ctgName chr20 --print_ref_calls True
+fa_other_contig	pileup.vcf.gz	fa_chr21.vcf.gz	--ctgName chr20
+fa_missing	pileup.vcf.gz	missing.vcf.gz	--ctgName chr20
+pileup_missing	missing.vcf.gz	fa.vcf.gz	--ctgName chr20
+wrong_contig	pileup.vcf.gz	fa.vcf.gz	--ctgName chr21
+edge	pileup_edge.vcf.gz	fa_edge.vcf	--ctgName chr20
+edge_ref	pileup_edge.vcf.gz	fa_edge.vcf	--ctgName chr20 --print_ref_calls True
+edge_precise	pileup_edge.vcf.gz	fa_edge.vcf	--ctgName chr20 --haploid_precise True --print_ref_calls True
+edge_sensitive	pileup_edge.vcf.gz	fa_edge.vcf	--ctgName chr20 --haploid_sensitive True --print_ref_calls True
+edge_qual0	pileup_edge.vcf.gz	fa_edge.vcf	--ctgName chr20 --qual 0 --print_ref_calls True
+edge_all_contigs	pileup_edge.vcf.gz	fa_edge.vcf	--print_ref_calls True
+edge_empty_contig	pileup_edge.vcf.gz	fa_edge.vcf	--ctgName ''
+text	pileup_text.vcf	fa_text.vcf	--ctgName chr20 --print_ref_calls True
+err_text_precise	pileup_text.vcf	fa_text.vcf	--ctgName chr20 --haploid_precise True
+err_text_all_contigs	pileup_text.vcf	fa_text.vcf	--qual 0
+err_spaces_lowqual	pileup_edge.vcf.gz	fa_spaces_lowqual.vcf	--ctgName chr20
+err_fa_blank	pileup_edge.vcf.gz	fa_blank.vcf	--ctgName chr20
+err_fa_short_haploid	pileup_edge.vcf.gz	fa_short.vcf	--ctgName chr20 --haploid_precise True
+fa_short_no_haploid	pileup_edge.vcf.gz	fa_short.vcf	--ctgName chr20
+err_pileup_badpos	pileup_badpos.vcf	fa_header.vcf	--ctgName chr20
+pileup_badpos_other_contig	pileup_badpos.vcf	fa_header.vcf	--ctgName chrX
+ilmn_oracle_beds	pileup.vcf.gz	fa.vcf.gz	--ctgName chr20 --platform ilmn --bed_fn_prefix beds_oracle
+ilmn_wide	pileup.vcf.gz	fa.vcf.gz	--ctgName chr20 --platform ilmn --bed_fn_prefix beds_wide
+ilmn_wide_ref_precise	pileup.vcf.gz	fa.vcf.gz	--ctgName chr20 --platform ilmn --bed_fn_prefix beds_wide --print_ref_calls True --haploid_precise True
+ilmn_fuse	pileup.vcf.gz	fa.vcf.gz	--ctgName chr20 --platform ilmn --bed_fn_prefix beds_fuse --qual 10
+ilmn_no_beds	pileup.vcf.gz	fa.vcf.gz	--ctgName chr20 --platform ilmn --bed_fn_prefix beds_none
+ilmn_edge	pileup_edge.vcf.gz	fa_edge.vcf	--ctgName chr20 --platform ilmn --bed_fn_prefix beds_wide --print_ref_calls True
+err_ilmn_bad_bed	pileup.vcf.gz	fa.vcf.gz	--ctgName chr20 --platform ilmn --bed_fn_prefix beds_bad
+err_ilmn_missing_dir	pileup.vcf.gz	fa.vcf.gz	--ctgName chr20 --platform ilmn --bed_fn_prefix beds_missing
+err_ilmn_no_contig	pileup.vcf.gz	fa.vcf.gz	--platform ilmn --bed_fn_prefix beds_wide

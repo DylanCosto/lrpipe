@@ -1,0 +1,1000 @@
+{
+  "date": "2026-11-24",
+  "organism": "Escherichia coli K-12 MG1655",
+  "benchmark_type": "published assembly-relative, haploid small variants",
+  "lrpipe_code_revision": "72a248a1c4f069d01f08670731b8282cfea23224",
+  "merged_main_revision": "91b8ac0220b94d3f3024cbf1a2555f696c0f3130",
+  "tool_versions": {
+    "lrpipe": "0.2.0",
+    "Clair3": "2.0.3",
+    "Bonefish": "0.5.0",
+    "minimap2": "2.30-r1287",
+    "bcftools": "1.24",
+    "samtools": "1.24",
+    "rtg": "3.13",
+    "pysam": "0.24.1"
+  },
+  "host": {
+    "processor": "Intel Xeon Gold 5418Y",
+    "logical_cpus": 24,
+    "caller_threads": 8,
+    "caller_device": "CPU",
+    "lrpipe_memory_budget_gib": 32
+  },
+  "archives": {
+    "ont": {
+      "accession": "SRR30993121",
+      "biosample": "SAMN44284316",
+      "reads": 50430,
+      "bases": 508242655,
+      "archive_bytes": 369820261,
+      "archive_md5": "efd64577fd9b5fe6c75e38786aea4115",
+      "archive_sha256": "81eb290c834d77229c7d10ac07e36d2b4564c0667fde304f1978fdbedcb86a1b",
+      "archive_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR309/021/SRR30993121/SRR30993121_1.fastq.gz"
+    },
+    "hifi": {
+      "accession": "SRR10971019",
+      "biosample": "SAMN02604091",
+      "reads": 95514,
+      "bases": 1389500381,
+      "archive_bytes": 1314046569,
+      "archive_md5": "011456886d05f1a8f6699615ea7cb60f",
+      "archive_sha256": "c94f79d12f91f4288b101f7cf7bfeac154b38650ae4f9a72ef2085e76556b3f2",
+      "archive_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR109/019/SRR10971019/SRR10971019_subreads.fastq.gz"
+    }
+  },
+  "assembly_truth": {
+    "U00096.1": {
+      "truth_assembly": "NC_000913.3",
+      "scored_bases": 4638164,
+      "snvs": 144,
+      "small_indels": 137,
+      "truth_vcf_sha256": "29c6d584d02baa57499e8adb5145edfa6b5f58c1148b0a927ac2142f7a44369e",
+      "confidence_bed_sha256": "1dfda1d8c58f5b942b78bd76748a2bae1726816addf5968435a229c6fb0039a2"
+    },
+    "CP009273.1": {
+      "truth_assembly": "NC_000913.3",
+      "scored_bases": 4627594,
+      "snvs": 18,
+      "small_indels": 2,
+      "truth_vcf_sha256": "127a7eedfebc8cfac6983ad3830e5ebaa32b02dfd6c38c14fdfa610a549a2d56",
+      "confidence_bed_sha256": "ba3ad0266ddaa41404a43e262548966923e96f0e2f3029cc93a995fcbfb62f2a"
+    }
+  },
+  "runs": {
+    "mg1655": {
+      "ont": {
+        "runtime": {
+          "input": {
+            "accession": "SRR30993121",
+            "records": 50430,
+            "bases": 508242655,
+            "sha256": "81eb290c834d77229c7d10ac07e36d2b4564c0667fde304f1978fdbedcb86a1b"
+          },
+          "reference": {
+            "id": "NC_000913.3",
+            "bases": 4641652,
+            "sha256": "53bb6a51b6e92139ced1e38f74b7938781027c52200922ff03718c2237d23bb4"
+          },
+          "lrpipe": {
+            "code_revision": "72a248a1c4f069d01f08670731b8282cfea23224",
+            "binary_sha256": "624957c41d8a259de4f1e286c09f4764ff72e6e709b77f4f6690a9359b4229b0",
+            "stages": {
+              "align": {
+                "status": "succeeded",
+                "wall_seconds": 8.183
+              },
+              "snv": {
+                "status": "succeeded",
+                "wall_seconds": 7.74
+              },
+              "merge": {
+                "status": "succeeded",
+                "wall_seconds": 0.003
+              },
+              "qc": {
+                "status": "succeeded",
+                "wall_seconds": 0.002
+              }
+            },
+            "fastq_to_qc": {
+              "wall_seconds": 16.79,
+              "user_seconds": 57.51,
+              "system_seconds": 3.22,
+              "max_rss_kib": 1990444
+            }
+          },
+          "clair3": {
+            "bam_to_vcf": {
+              "wall_seconds": 20.5,
+              "user_seconds": 18.36,
+              "system_seconds": 2.19,
+              "max_rss_kib": 1748916
+            }
+          },
+          "alignment": {
+            "primary_records": 50430,
+            "mapped_primary_reads": 50430,
+            "reference_bases_covered": 4606814,
+            "mean_reference_depth": 105.039,
+            "sha256": "34bb4e8382b0017c2ebe72aecfb2fe37d80106f94f584333d9ff334b408f659a"
+          },
+          "model": {
+            "name": "r1041_e82_400bps_sup_v500",
+            "files": {
+              "pileup.pt": "d84d9f1a1da0a68204404cac1817724ada4d15363d8a62d87703b6ed56c4a4ff",
+              "full_alignment.pt": "320f7083ae1b8eeba390471fbbeb6fbefb93dab079300ce2605a7222d7d65388"
+            }
+          },
+          "threads": 8,
+          "memory_gib": 32,
+          "device": "cpu"
+        },
+        "scores": {
+          "calls": {
+            "lrpipe": {
+              "pass_before_mask": {
+                "snv": 5,
+                "indel": 5,
+                "other": 0
+              },
+              "outside_mask": {
+                "snv": 0,
+                "indel": 0
+              }
+            },
+            "clair3": {
+              "pass_before_mask": {
+                "snv": 5,
+                "indel": 5,
+                "other": 0
+              },
+              "outside_mask": {
+                "snv": 0,
+                "indel": 0
+              }
+            }
+          },
+          "exact_pass_agreement": {
+            "snv": {
+              "shared": 5,
+              "union": 5,
+              "lrpipe_only": 0,
+              "clair3_only": 0
+            },
+            "indel": {
+              "shared": 5,
+              "union": 5,
+              "lrpipe_only": 0,
+              "clair3_only": 0
+            }
+          }
+        }
+      },
+      "hifi": {
+        "runtime": {
+          "input": {
+            "accession": "SRR10971019",
+            "records": 95514,
+            "bases": 1389500381,
+            "sha256": "c94f79d12f91f4288b101f7cf7bfeac154b38650ae4f9a72ef2085e76556b3f2"
+          },
+          "reference": {
+            "id": "NC_000913.3",
+            "bases": 4641652,
+            "sha256": "53bb6a51b6e92139ced1e38f74b7938781027c52200922ff03718c2237d23bb4"
+          },
+          "lrpipe": {
+            "code_revision": "72a248a1c4f069d01f08670731b8282cfea23224",
+            "binary_sha256": "624957c41d8a259de4f1e286c09f4764ff72e6e709b77f4f6690a9359b4229b0",
+            "stages": {
+              "align": {
+                "status": "succeeded",
+                "wall_seconds": 19.243
+              },
+              "snv": {
+                "status": "succeeded",
+                "wall_seconds": 24.273
+              },
+              "merge": {
+                "status": "succeeded",
+                "wall_seconds": 0.007
+              },
+              "qc": {
+                "status": "succeeded",
+                "wall_seconds": 0.003
+              }
+            },
+            "fastq_to_qc": {
+              "wall_seconds": 43.77,
+              "user_seconds": 152.87,
+              "system_seconds": 7.62,
+              "max_rss_kib": 4339100
+            }
+          },
+          "clair3": {
+            "bam_to_vcf": {
+              "wall_seconds": 86.28,
+              "user_seconds": 66.6,
+              "system_seconds": 9.71,
+              "max_rss_kib": 1768588
+            }
+          },
+          "alignment": {
+            "primary_records": 95514,
+            "mapped_primary_reads": 95514,
+            "reference_bases_covered": 4641651,
+            "mean_reference_depth": 295.284,
+            "sha256": "07c4866381ae972fb845e9d57d2f20dfc3fa58c5cb30341c10138328dce44656"
+          },
+          "model": {
+            "name": "hifi_sequel2",
+            "files": {
+              "pileup.pt": "71a762cb98e17f163496174bcc35b2ff5606db760383d91c9a885d6637fdc6a0",
+              "full_alignment.pt": "9ae2f5c75184f40649dde5c5bc82d39a65c3bfa5738f516fe20353008f0b4c26"
+            }
+          },
+          "threads": 8,
+          "memory_gib": 32,
+          "device": "cpu"
+        },
+        "scores": {
+          "calls": {
+            "lrpipe": {
+              "pass_before_mask": {
+                "snv": 1,
+                "indel": 3,
+                "other": 0
+              },
+              "outside_mask": {
+                "snv": 0,
+                "indel": 0
+              }
+            },
+            "clair3": {
+              "pass_before_mask": {
+                "snv": 1,
+                "indel": 3,
+                "other": 0
+              },
+              "outside_mask": {
+                "snv": 0,
+                "indel": 0
+              }
+            }
+          },
+          "exact_pass_agreement": {
+            "snv": {
+              "shared": 1,
+              "union": 1,
+              "lrpipe_only": 0,
+              "clair3_only": 0
+            },
+            "indel": {
+              "shared": 3,
+              "union": 3,
+              "lrpipe_only": 0,
+              "clair3_only": 0
+            }
+          }
+        }
+      }
+    },
+    "U00096.1": {
+      "ont": {
+        "runtime": {
+          "input": {
+            "accession": "SRR30993121",
+            "records": 50430,
+            "bases": 508242655,
+            "sha256": "81eb290c834d77229c7d10ac07e36d2b4564c0667fde304f1978fdbedcb86a1b"
+          },
+          "reference": {
+            "id": "U00096.1",
+            "bases": 4639221,
+            "sha256": "7f11c31160fdbedc5222cbb50a1cfb31fd618a1c7bb8d28f49efbbe944b65593"
+          },
+          "lrpipe": {
+            "code_revision": "72a248a1c4f069d01f08670731b8282cfea23224",
+            "binary_sha256": "624957c41d8a259de4f1e286c09f4764ff72e6e709b77f4f6690a9359b4229b0",
+            "stages": {
+              "align": {
+                "status": "succeeded",
+                "wall_seconds": 9.021
+              },
+              "snv": {
+                "status": "succeeded",
+                "wall_seconds": 8.692
+              },
+              "merge": {
+                "status": "succeeded",
+                "wall_seconds": 0.012
+              },
+              "qc": {
+                "status": "succeeded",
+                "wall_seconds": 0.005
+              }
+            },
+            "fastq_to_qc": {
+              "wall_seconds": 18.65,
+              "user_seconds": 58.71,
+              "system_seconds": 3.02,
+              "max_rss_kib": 1969648
+            }
+          },
+          "clair3": {
+            "bam_to_vcf": {
+              "wall_seconds": 25.41,
+              "user_seconds": 20.72,
+              "system_seconds": 4.6,
+              "max_rss_kib": 1750464
+            }
+          },
+          "alignment": {
+            "primary_records": 50430,
+            "mapped_primary_reads": 50430,
+            "reference_bases_covered": 4605505,
+            "mean_reference_depth": 105.085,
+            "sha256": "e5569015271b7d803d72c5c6931a99c10466f35b9fc1d34d25e4112793ae821f"
+          },
+          "model": {
+            "name": "r1041_e82_400bps_sup_v500",
+            "files": {
+              "pileup.pt": "d84d9f1a1da0a68204404cac1817724ada4d15363d8a62d87703b6ed56c4a4ff",
+              "full_alignment.pt": "320f7083ae1b8eeba390471fbbeb6fbefb93dab079300ce2605a7222d7d65388"
+            }
+          },
+          "threads": 8,
+          "memory_gib": 32,
+          "device": "cpu"
+        },
+        "scores": {
+          "calls": {
+            "lrpipe": {
+              "pass_before_mask": {
+                "snv": 136,
+                "indel": 155,
+                "other": 0
+              },
+              "outside_mask": {
+                "snv": 3,
+                "indel": 10
+              },
+              "accuracy": {
+                "snv": {
+                  "recall_tp": 137,
+                  "precision_tp": 126,
+                  "false_negative": 7,
+                  "false_positive": 7,
+                  "truth_variants": 144,
+                  "called_variants": 133,
+                  "precision": 0.9473684210526315,
+                  "recall": 0.9513888888888888
+                },
+                "indel": {
+                  "recall_tp": 132,
+                  "precision_tp": 139,
+                  "false_negative": 5,
+                  "false_positive": 6,
+                  "truth_variants": 137,
+                  "called_variants": 145,
+                  "precision": 0.9586206896551724,
+                  "recall": 0.9635036496350365
+                }
+              }
+            },
+            "clair3": {
+              "pass_before_mask": {
+                "snv": 136,
+                "indel": 155,
+                "other": 0
+              },
+              "outside_mask": {
+                "snv": 3,
+                "indel": 10
+              },
+              "accuracy": {
+                "snv": {
+                  "recall_tp": 137,
+                  "precision_tp": 126,
+                  "false_negative": 7,
+                  "false_positive": 7,
+                  "truth_variants": 144,
+                  "called_variants": 133,
+                  "precision": 0.9473684210526315,
+                  "recall": 0.9513888888888888
+                },
+                "indel": {
+                  "recall_tp": 132,
+                  "precision_tp": 139,
+                  "false_negative": 5,
+                  "false_positive": 6,
+                  "truth_variants": 137,
+                  "called_variants": 145,
+                  "precision": 0.9586206896551724,
+                  "recall": 0.9635036496350365
+                }
+              }
+            }
+          },
+          "exact_pass_agreement": {
+            "snv": {
+              "shared": 133,
+              "union": 133,
+              "lrpipe_only": 0,
+              "clair3_only": 0
+            },
+            "indel": {
+              "shared": 145,
+              "union": 145,
+              "lrpipe_only": 0,
+              "clair3_only": 0
+            }
+          }
+        },
+        "depth_at_missed_truth_anchors": {
+          "lrpipe": {
+            "snv": {
+              "zero": 0,
+              "1_to_9": 1,
+              "at_least_10": 6
+            },
+            "indel": {
+              "zero": 0,
+              "1_to_9": 0,
+              "at_least_10": 5
+            }
+          },
+          "clair3": {
+            "snv": {
+              "zero": 0,
+              "1_to_9": 1,
+              "at_least_10": 6
+            },
+            "indel": {
+              "zero": 0,
+              "1_to_9": 0,
+              "at_least_10": 5
+            }
+          }
+        }
+      },
+      "hifi": {
+        "runtime": {
+          "input": {
+            "accession": "SRR10971019",
+            "records": 95514,
+            "bases": 1389500381,
+            "sha256": "c94f79d12f91f4288b101f7cf7bfeac154b38650ae4f9a72ef2085e76556b3f2"
+          },
+          "reference": {
+            "id": "U00096.1",
+            "bases": 4639221,
+            "sha256": "7f11c31160fdbedc5222cbb50a1cfb31fd618a1c7bb8d28f49efbbe944b65593"
+          },
+          "lrpipe": {
+            "code_revision": "72a248a1c4f069d01f08670731b8282cfea23224",
+            "binary_sha256": "624957c41d8a259de4f1e286c09f4764ff72e6e709b77f4f6690a9359b4229b0",
+            "stages": {
+              "align": {
+                "status": "succeeded",
+                "wall_seconds": 29.545
+              },
+              "snv": {
+                "status": "succeeded",
+                "wall_seconds": 25.062
+              },
+              "merge": {
+                "status": "succeeded",
+                "wall_seconds": 0.008
+              },
+              "qc": {
+                "status": "succeeded",
+                "wall_seconds": 0.003
+              }
+            },
+            "fastq_to_qc": {
+              "wall_seconds": 54.94,
+              "user_seconds": 160.39,
+              "system_seconds": 8.32,
+              "max_rss_kib": 4468004
+            }
+          },
+          "clair3": {
+            "bam_to_vcf": {
+              "wall_seconds": 81.67,
+              "user_seconds": 65.95,
+              "system_seconds": 14.6,
+              "max_rss_kib": 1768312
+            }
+          },
+          "alignment": {
+            "primary_records": 95514,
+            "mapped_primary_reads": 95514,
+            "reference_bases_covered": 4639210,
+            "mean_reference_depth": 295.282,
+            "sha256": "9344f0792f954816fdb6ccce654933f08d203161b355b0a74a128775fa4f4bb7"
+          },
+          "model": {
+            "name": "hifi_sequel2",
+            "files": {
+              "pileup.pt": "71a762cb98e17f163496174bcc35b2ff5606db760383d91c9a885d6637fdc6a0",
+              "full_alignment.pt": "9ae2f5c75184f40649dde5c5bc82d39a65c3bfa5738f516fe20353008f0b4c26"
+            }
+          },
+          "threads": 8,
+          "memory_gib": 32,
+          "device": "cpu"
+        },
+        "scores": {
+          "calls": {
+            "lrpipe": {
+              "pass_before_mask": {
+                "snv": 132,
+                "indel": 158,
+                "other": 0
+              },
+              "outside_mask": {
+                "snv": 3,
+                "indel": 10
+              },
+              "accuracy": {
+                "snv": {
+                  "recall_tp": 135,
+                  "precision_tp": 128,
+                  "false_negative": 9,
+                  "false_positive": 1,
+                  "truth_variants": 144,
+                  "called_variants": 129,
+                  "precision": 0.9922480620155039,
+                  "recall": 0.9375
+                },
+                "indel": {
+                  "recall_tp": 136,
+                  "precision_tp": 142,
+                  "false_negative": 1,
+                  "false_positive": 6,
+                  "truth_variants": 137,
+                  "called_variants": 148,
+                  "precision": 0.9594594594594594,
+                  "recall": 0.9927007299270073
+                }
+              }
+            },
+            "clair3": {
+              "pass_before_mask": {
+                "snv": 132,
+                "indel": 158,
+                "other": 0
+              },
+              "outside_mask": {
+                "snv": 3,
+                "indel": 10
+              },
+              "accuracy": {
+                "snv": {
+                  "recall_tp": 135,
+                  "precision_tp": 128,
+                  "false_negative": 9,
+                  "false_positive": 1,
+                  "truth_variants": 144,
+                  "called_variants": 129,
+                  "precision": 0.9922480620155039,
+                  "recall": 0.9375
+                },
+                "indel": {
+                  "recall_tp": 136,
+                  "precision_tp": 142,
+                  "false_negative": 1,
+                  "false_positive": 6,
+                  "truth_variants": 137,
+                  "called_variants": 148,
+                  "precision": 0.9594594594594594,
+                  "recall": 0.9927007299270073
+                }
+              }
+            }
+          },
+          "exact_pass_agreement": {
+            "snv": {
+              "shared": 129,
+              "union": 129,
+              "lrpipe_only": 0,
+              "clair3_only": 0
+            },
+            "indel": {
+              "shared": 148,
+              "union": 148,
+              "lrpipe_only": 0,
+              "clair3_only": 0
+            }
+          }
+        },
+        "depth_at_missed_truth_anchors": {
+          "lrpipe": {
+            "snv": {
+              "zero": 1,
+              "1_to_9": 2,
+              "at_least_10": 6
+            },
+            "indel": {
+              "zero": 0,
+              "1_to_9": 0,
+              "at_least_10": 1
+            }
+          },
+          "clair3": {
+            "snv": {
+              "zero": 1,
+              "1_to_9": 2,
+              "at_least_10": 6
+            },
+            "indel": {
+              "zero": 0,
+              "1_to_9": 0,
+              "at_least_10": 1
+            }
+          }
+        }
+      }
+    },
+    "CP009273.1": {
+      "ont": {
+        "runtime": {
+          "input": {
+            "accession": "SRR30993121",
+            "records": 50430,
+            "bases": 508242655,
+            "sha256": "81eb290c834d77229c7d10ac07e36d2b4564c0667fde304f1978fdbedcb86a1b"
+          },
+          "reference": {
+            "id": "CP009273.1",
+            "bases": 4631469,
+            "sha256": "37eade01311f1f81659fad53bf907a93139075a75d115fd3aec2ef09beac2e90"
+          },
+          "lrpipe": {
+            "code_revision": "72a248a1c4f069d01f08670731b8282cfea23224",
+            "binary_sha256": "624957c41d8a259de4f1e286c09f4764ff72e6e709b77f4f6690a9359b4229b0",
+            "stages": {
+              "align": {
+                "status": "succeeded",
+                "wall_seconds": 7.74
+              },
+              "snv": {
+                "status": "succeeded",
+                "wall_seconds": 8.049
+              },
+              "merge": {
+                "status": "succeeded",
+                "wall_seconds": 0.003
+              },
+              "qc": {
+                "status": "succeeded",
+                "wall_seconds": 0.002
+              }
+            },
+            "fastq_to_qc": {
+              "wall_seconds": 16.75,
+              "user_seconds": 58.27,
+              "system_seconds": 3.14,
+              "max_rss_kib": 1998440
+            }
+          },
+          "clair3": {
+            "bam_to_vcf": {
+              "wall_seconds": 21.24,
+              "user_seconds": 18.85,
+              "system_seconds": 2.47,
+              "max_rss_kib": 1746424
+            }
+          },
+          "alignment": {
+            "primary_records": 50430,
+            "mapped_primary_reads": 50418,
+            "reference_bases_covered": 4597224,
+            "mean_reference_depth": 105.071,
+            "sha256": "c7d7b701674ba9195a141220dc9b450be23865982e65e39f9cc1cdd19ab8c9df"
+          },
+          "model": {
+            "name": "r1041_e82_400bps_sup_v500",
+            "files": {
+              "pileup.pt": "d84d9f1a1da0a68204404cac1817724ada4d15363d8a62d87703b6ed56c4a4ff",
+              "full_alignment.pt": "320f7083ae1b8eeba390471fbbeb6fbefb93dab079300ce2605a7222d7d65388"
+            }
+          },
+          "threads": 8,
+          "memory_gib": 32,
+          "device": "cpu"
+        },
+        "scores": {
+          "calls": {
+            "lrpipe": {
+              "pass_before_mask": {
+                "snv": 127,
+                "indel": 66,
+                "other": 0
+              },
+              "outside_mask": {
+                "snv": 108,
+                "indel": 66
+              },
+              "accuracy": {
+                "snv": {
+                  "recall_tp": 15,
+                  "precision_tp": 15,
+                  "false_negative": 3,
+                  "false_positive": 4,
+                  "truth_variants": 18,
+                  "called_variants": 19,
+                  "precision": 0.7894736842105263,
+                  "recall": 0.8333333333333334
+                },
+                "indel": {
+                  "recall_tp": 0,
+                  "precision_tp": 0,
+                  "false_negative": 2,
+                  "false_positive": 0,
+                  "truth_variants": 2,
+                  "called_variants": 0,
+                  "precision": null,
+                  "recall": 0.0
+                }
+              }
+            },
+            "clair3": {
+              "pass_before_mask": {
+                "snv": 125,
+                "indel": 56,
+                "other": 0
+              },
+              "outside_mask": {
+                "snv": 106,
+                "indel": 56
+              },
+              "accuracy": {
+                "snv": {
+                  "recall_tp": 15,
+                  "precision_tp": 15,
+                  "false_negative": 3,
+                  "false_positive": 4,
+                  "truth_variants": 18,
+                  "called_variants": 19,
+                  "precision": 0.7894736842105263,
+                  "recall": 0.8333333333333334
+                },
+                "indel": {
+                  "recall_tp": 0,
+                  "precision_tp": 0,
+                  "false_negative": 2,
+                  "false_positive": 0,
+                  "truth_variants": 2,
+                  "called_variants": 0,
+                  "precision": null,
+                  "recall": 0.0
+                }
+              }
+            }
+          },
+          "exact_pass_agreement": {
+            "snv": {
+              "shared": 19,
+              "union": 19,
+              "lrpipe_only": 0,
+              "clair3_only": 0
+            },
+            "indel": {
+              "shared": 0,
+              "union": 0,
+              "lrpipe_only": 0,
+              "clair3_only": 0
+            }
+          }
+        },
+        "depth_at_missed_truth_anchors": {
+          "lrpipe": {
+            "snv": {
+              "zero": 0,
+              "1_to_9": 0,
+              "at_least_10": 3
+            },
+            "indel": {
+              "zero": 0,
+              "1_to_9": 0,
+              "at_least_10": 2
+            }
+          },
+          "clair3": {
+            "snv": {
+              "zero": 0,
+              "1_to_9": 0,
+              "at_least_10": 3
+            },
+            "indel": {
+              "zero": 0,
+              "1_to_9": 0,
+              "at_least_10": 2
+            }
+          }
+        }
+      },
+      "hifi": {
+        "runtime": {
+          "input": {
+            "accession": "SRR10971019",
+            "records": 95514,
+            "bases": 1389500381,
+            "sha256": "c94f79d12f91f4288b101f7cf7bfeac154b38650ae4f9a72ef2085e76556b3f2"
+          },
+          "reference": {
+            "id": "CP009273.1",
+            "bases": 4631469,
+            "sha256": "37eade01311f1f81659fad53bf907a93139075a75d115fd3aec2ef09beac2e90"
+          },
+          "lrpipe": {
+            "code_revision": "72a248a1c4f069d01f08670731b8282cfea23224",
+            "binary_sha256": "624957c41d8a259de4f1e286c09f4764ff72e6e709b77f4f6690a9359b4229b0",
+            "stages": {
+              "align": {
+                "status": "succeeded",
+                "wall_seconds": 26.365
+              },
+              "snv": {
+                "status": "succeeded",
+                "wall_seconds": 22.659
+              },
+              "merge": {
+                "status": "succeeded",
+                "wall_seconds": 0.004
+              },
+              "qc": {
+                "status": "succeeded",
+                "wall_seconds": 0.003
+              }
+            },
+            "fastq_to_qc": {
+              "wall_seconds": 49.37,
+              "user_seconds": 158.79,
+              "system_seconds": 9.74,
+              "max_rss_kib": 4637728
+            }
+          },
+          "clair3": {
+            "bam_to_vcf": {
+              "wall_seconds": 75.51,
+              "user_seconds": 62.71,
+              "system_seconds": 10.74,
+              "max_rss_kib": 1766592
+            }
+          },
+          "alignment": {
+            "primary_records": 95514,
+            "mapped_primary_reads": 95514,
+            "reference_bases_covered": 4629663,
+            "mean_reference_depth": 295.129,
+            "sha256": "d85c3a9ba3a11b942fcb495743481291812a5e13055c8854ee2c61c852792eb0"
+          },
+          "model": {
+            "name": "hifi_sequel2",
+            "files": {
+              "pileup.pt": "71a762cb98e17f163496174bcc35b2ff5606db760383d91c9a885d6637fdc6a0",
+              "full_alignment.pt": "9ae2f5c75184f40649dde5c5bc82d39a65c3bfa5738f516fe20353008f0b4c26"
+            }
+          },
+          "threads": 8,
+          "memory_gib": 32,
+          "device": "cpu"
+        },
+        "scores": {
+          "calls": {
+            "lrpipe": {
+              "pass_before_mask": {
+                "snv": 22,
+                "indel": 6,
+                "other": 0
+              },
+              "outside_mask": {
+                "snv": 7,
+                "indel": 4
+              },
+              "accuracy": {
+                "snv": {
+                  "recall_tp": 15,
+                  "precision_tp": 15,
+                  "false_negative": 3,
+                  "false_positive": 0,
+                  "truth_variants": 18,
+                  "called_variants": 15,
+                  "precision": 1.0,
+                  "recall": 0.8333333333333334
+                },
+                "indel": {
+                  "recall_tp": 2,
+                  "precision_tp": 2,
+                  "false_negative": 0,
+                  "false_positive": 0,
+                  "truth_variants": 2,
+                  "called_variants": 2,
+                  "precision": 1.0,
+                  "recall": 1.0
+                }
+              }
+            },
+            "clair3": {
+              "pass_before_mask": {
+                "snv": 22,
+                "indel": 6,
+                "other": 0
+              },
+              "outside_mask": {
+                "snv": 7,
+                "indel": 4
+              },
+              "accuracy": {
+                "snv": {
+                  "recall_tp": 15,
+                  "precision_tp": 15,
+                  "false_negative": 3,
+                  "false_positive": 0,
+                  "truth_variants": 18,
+                  "called_variants": 15,
+                  "precision": 1.0,
+                  "recall": 0.8333333333333334
+                },
+                "indel": {
+                  "recall_tp": 2,
+                  "precision_tp": 2,
+                  "false_negative": 0,
+                  "false_positive": 0,
+                  "truth_variants": 2,
+                  "called_variants": 2,
+                  "precision": 1.0,
+                  "recall": 1.0
+                }
+              }
+            }
+          },
+          "exact_pass_agreement": {
+            "snv": {
+              "shared": 15,
+              "union": 15,
+              "lrpipe_only": 0,
+              "clair3_only": 0
+            },
+            "indel": {
+              "shared": 2,
+              "union": 2,
+              "lrpipe_only": 0,
+              "clair3_only": 0
+            }
+          }
+        },
+        "depth_at_missed_truth_anchors": {
+          "lrpipe": {
+            "snv": {
+              "zero": 0,
+              "1_to_9": 0,
+              "at_least_10": 3
+            },
+            "indel": {
+              "zero": 0,
+              "1_to_9": 0,
+              "at_least_10": 0
+            }
+          },
+          "clair3": {
+            "snv": {
+              "zero": 0,
+              "1_to_9": 0,
+              "at_least_10": 3
+            },
+            "indel": {
+              "zero": 0,
+              "1_to_9": 0,
+              "at_least_10": 0
+            }
+          }
+        }
+      }
+    }
+  }
+}

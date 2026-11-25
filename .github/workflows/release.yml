@@ -1,0 +1,93 @@
+# tools/release_build.sh on each platform: the workspace built and tested, then the bundle
+# lrpipe-VERSION-ARCH-OS.tar.gz with its .sha256.
+#
+# A pushed tag (v0.2.1) attaches the three bundles to a draft release, to be read and published
+# by hand. Run by hand (workflow_dispatch) with a version, it only keeps the bundles as the run's
+# artifacts, e.g. to add the aarch64 and macOS bundles to a release that has its x86_64 one.
+#
+# A runner has no GPU, Clair3 model or WhatsHap: tools/check.sh --release on a machine with them
+# stays the release gate (README, Development).
+name: release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      version:
+        description: The version the bundles are named for (0.2.0), built from the chosen ref
+        required: true
+
+permissions:
+  contents: write
+
+env:
+  CARGO_TERM_COLOR: always
+  VERSION: ${{ inputs.version || github.ref_name }}
+
+jobs:
+  linux:
+    name: ${{ matrix.platform }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: x86_64-linux
+            runner: ubuntu-24.04
+            image: quay.io/pypa/manylinux_2_28_x86_64
+          - platform: aarch64-linux
+            runner: ubuntu-24.04-arm
+            image: quay.io/pypa/manylinux_2_28_aarch64
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 150
+    # AlmaLinux 8 (glibc 2.28): the binaries run on RHEL 8 and later, Ubuntu 20.04 and later.
+    container: ${{ matrix.image }}
+    steps:
+      - uses: actions/checkout@v4
+      # release_build.sh installs its Rust (RUST_TOOLCHAIN, 1.98.0) where cargo is missing.
+      - name: tools/release_build.sh
+        run: tools/release_build.sh "${VERSION#v}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.platform }}
+          path: dist/*.tar.gz*
+          if-no-files-found: error
+
+  macos:
+    name: aarch64-macos
+    runs-on: macos-15
+    timeout-minutes: 150
+    env:
+      MACOSX_DEPLOYMENT_TARGET: '11.0'
+      # No NVIDIA GPUs on Apple silicon: no CUDA, and lrpipe snv calls on the Apple GPU
+      # (device = "metal") or the CPU.
+      LRPIPE_BUILD_FLAGS: --no-default-features --features lrpipe/metal
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rust 1.98.0
+        run: |
+          rustup toolchain install 1.98.0 --profile minimal
+          rustup default 1.98.0
+      - name: tools/release_build.sh
+        run: tools/release_build.sh "${VERSION#v}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aarch64-macos
+          path: dist/*.tar.gz*
+          if-no-files-found: error
+
+  release:
+    if: github.event_name == 'push'
+    needs: [linux, macos]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - name: Draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/* --repo "$GITHUB_REPOSITORY" \
+            --draft --title "lrpipe ${GITHUB_REF_NAME#v}" --verify-tag

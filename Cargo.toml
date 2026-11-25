@@ -1,0 +1,93 @@
+[workspace]
+members = [
+    "crates/lrpipe",
+    "crates/lrpipe-reads",
+    "crates/lrpipe-sv",
+    "crates/lrpipe-depth",
+    "crates/lrpipe-cnv/crates/*",
+    "crates/lrpipe-tr/crates/*",
+    "crates/lrpipe-methyl/crates/*",
+    "crates/lrpipe-snv/crates/*",
+    "crates/lrpipe-phase",
+]
+resolver = "3"
+
+[workspace.package]
+version = "0.3.0"
+edition = "2024"
+rust-version = "1.91"
+license = "MIT"
+repository = "https://github.com/DylanCosto/lrpipe"
+
+[workspace.dependencies]
+anyhow = "1.0.104"
+clap = { version = "4.6.7", features = ["derive"] }
+flate2 = { version = "1.1.10", default-features = false, features = ["zlib-rs"] }
+md-5 = "0.11.0"
+# One reader library for every tool, so they share a read pass.
+# pasta (DylanCosto/pasta): SAM/BAM/CRAM/BGZF/index/FASTA/VCF, begun from noodles. Pinned:
+# bump the rev deliberately and rerun every parity suite. BGZF goes through zflate, in Rust, which
+# replaced pasta's optional libdeflate (a C library) in pasta 0.9.0.
+pasta = { git = "https://github.com/DylanCosto/pasta", rev = "3050cd1a47cad015fe1aa77c761f12459da04f73" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0.154", features = ["float_roundtrip"] }
+sha2 = "0.10.9"
+thiserror = "2.0.21"
+lrpipe-depth = { path = "crates/lrpipe-depth" }
+lrpipe = { path = "crates/lrpipe" }
+lrpipe-methyl = { path = "crates/lrpipe-methyl/crates/lrpipe-methyl" }
+pynum = { path = "crates/lrpipe-cnv/crates/pynum" }
+lrpipe-sv = { path = "crates/lrpipe-sv" }
+lrpipe-cnv = { path = "crates/lrpipe-cnv/crates/lrpipe-cnv" }
+lrpipe-cnv-cli = { path = "crates/lrpipe-cnv/crates/lrpipe-cnv-cli" }
+lrpipe-tr = { path = "crates/lrpipe-tr/crates/lrpipe-tr" }
+lrpipe-reads = { path = "crates/lrpipe-reads" }
+lrpipe-snv = { path = "crates/lrpipe-snv/crates/lrpipe-snv", default-features = false }
+# WhatsHap 2.8 in Rust (formerly braid). Without its default `mimalloc`, which only its own binary
+# allocates with.
+lrpipe-phase = { path = "crates/lrpipe-phase", default-features = false }
+snv-call = { path = "crates/lrpipe-snv/crates/snv-call" }
+snv-fullalign = { path = "crates/lrpipe-snv/crates/snv-fullalign" }
+snv-hts = { path = "crates/lrpipe-snv/crates/snv-hts" }
+snv-infer = { path = "crates/lrpipe-snv/crates/snv-infer", default-features = false }
+snv-merge = { path = "crates/lrpipe-snv/crates/snv-merge" }
+snv-mpileup = { path = "crates/lrpipe-snv/crates/snv-mpileup" }
+snv-phase = { path = "crates/lrpipe-snv/crates/snv-phase" }
+snv-pileup = { path = "crates/lrpipe-snv/crates/snv-pileup" }
+snv-realign = { path = "crates/lrpipe-snv/crates/snv-realign" }
+snv-select = { path = "crates/lrpipe-snv/crates/snv-select" }
+# lrpipe-snv's: the networks (CUDA loaded at run time), its phasing and its intermediate files.
+cudarc = { version = "0.19.10", default-features = false, features = ["std", "driver", "nvrtc", "dynamic-loading", "cuda-12090"] }
+env_logger = "0.11.11"
+# x86-v4: its AVX-512 kernels, chosen at run time on CPUs that have AVX-512.
+gemm = { version = "0.19.0", default-features = false, features = ["std", "x86-v4"] }
+libc = "0.2.191"
+log = "0.4.34"
+# The lz4 frames of lrpipe-snv's intermediate gVCFs, in Rust.
+lz4_flex = "0.14.0"
+ndarray = "0.17.2"
+# lrpipe-snv's networks on Apple GPUs: Rust bindings to the Metal framework (macOS only).
+objc2 = { version = "0.6.5", default-features = false, features = ["std"] }
+objc2-foundation = { version = "0.3.2", default-features = false, features = ["std", "NSString", "NSError"] }
+objc2-metal = { version = "0.3.2", default-features = false, features = ["std", "MTLAllocation", "MTLBuffer", "MTLCommandBuffer", "MTLCommandEncoder", "MTLCommandQueue", "MTLComputeCommandEncoder", "MTLComputePipeline", "MTLDevice", "MTLLibrary", "MTLResource", "MTLTypes"] }
+ndarray-npy = { version = "0.10.0", default-features = false }
+rayon = "1.12.0"
+twox-hash = { version = "2.1.4", default-features = false, features = ["std", "xxhash32"] }
+
+# lrpipe-cnv's and lrpipe-tr's lints; the other crates set their own.
+[workspace.lints.rust]
+unsafe_code = "forbid"
+missing_debug_implementations = "warn"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+
+[profile.release]
+codegen-units = 1
+lto = "fat"
+panic = "abort"
+
+# Release build with line tables, for profiling (cargo build --profile profiling)
+[profile.profiling]
+inherits = "release"
+debug = "line-tables-only"

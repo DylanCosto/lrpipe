@@ -1,0 +1,42 @@
+[package]
+name = "lrpipe-phase"
+description = "Read-based phasing: WhatsHap 2.8 in Rust (formerly braid)"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "lrpipe-phase"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+bzip2 = "0.6.1"
+clap.workspace = true
+env_logger.workspace = true
+flate2.workspace = true
+hashbrown = { version = "0.17.1", default-features = false }
+libc.workspace = true
+log.workspace = true
+# BED files of regions (haplotag --regions-bed).
+lrpipe-reads.workspace = true
+lzma-rust2 = { version = "0.22.0", default-features = false, features = ["std", "encoder", "xz"] }
+md-5.workspace = true
+mimalloc = { version = "0.1.52", optional = true }
+pasta.workspace = true
+pprof = { version = "0.15.0", optional = true }
+rayon.workspace = true
+
+[features]
+default = ["mimalloc"]
+# The lrpipe-phase binary allocates with mimalloc (a C library, built with a C compiler). Off, it
+# uses the system allocator; a program using lrpipe-phase as a library chooses its own either way.
+mimalloc = ["dep:mimalloc"]
+# Sampling CPU profiler: set LRPIPE_PHASE_PROFILE=prefix to write prefix.svg
+# (flame graph) and prefix.txt (functions by inclusive and self time).
+profile = ["dep:pprof"]

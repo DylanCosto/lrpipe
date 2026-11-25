@@ -1,0 +1,15 @@
+[package]
+name = "lrpipe-tr-bench"
+description = "Scores tandem repeat calls against the GIAB HG002 tandem repeat benchmark"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+flate2.workspace = true
+
+[lints]
+workspace = true

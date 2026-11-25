@@ -1,0 +1,12 @@
+matrix	execution	checked	planned	pending	passed_or_recovered	expected_refusals	stale_repeat_index	success_with_damaged_output	resume_error	unexpected	captured_utc
+raw-and-split-analysis-output-matrix	planning and rejection	115584	115584	0	46976	68608	0	0	0	0	2026-11-25T15:45:59+00:00
+single-aligned-analysis-output-matrix	planning and rejection	82560	82560	0	31360	51200	0	0	0	0	2026-11-25T15:45:59+00:00
+new-raw-and-split-stage-command-sets	runtime	8904	8904	0	8904	0	0	0	0	0	2026-11-25T15:45:59+00:00
+new-single-aligned-stage-command-sets	runtime	3948	3948	0	3948	0	0	0	0	0	2026-11-25T15:45:59+00:00
+option-changes-on-resume	runtime	9856	9856	0	7648	1488	720	0	0	0	2026-11-25T15:45:59+00:00
+damaged-checkpoint-artifacts	runtime	424	424	0	316	0	0	56	52	0	2026-11-25T15:45:59+00:00
+signals-and-concurrent-invocations	runtime	96	96	0	96	0	0	0	0	0	2026-11-25T15:45:59+00:00
+sample-labels-and-aliases	runtime	310	310	0	118	192	0	0	0	0	2026-11-25T15:45:59+00:00
+raw-file-splitting	runtime and record comparison	288	288	0	256	32	0	0	0	0	2026-11-25T15:45:59+00:00
+cuda-input-layouts	runtime	328	328	0	328	0	0	0	0	0	2026-11-25T15:45:59+00:00
+cuda-default-output-options	runtime or rejection	768	768	0	576	192	0	0	0	0	2026-11-25T15:45:59+00:00

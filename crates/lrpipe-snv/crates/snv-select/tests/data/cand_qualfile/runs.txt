@@ -1,0 +1,3 @@
+cand chr1 0.3 0.3 ont 10000 qual_ties
+cand chr1 0.3 0.3 ont 10000 qual_inf
+cand chr1 0.3 0.3 ont 2 qual_extra
