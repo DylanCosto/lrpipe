@@ -146,7 +146,7 @@ agree less, 99.340% (99.707% before), as lrpipe no longer reproduces its wrappin
 unchanged within 0.0002 on both genomes (the tables below). Speed is unchanged: the GPU does the
 same work on other numbers.
 
-The 0.2.2 GPU calls were scored with [touchstone](https://github.com/DylanCosto/touchstone)
+The 0.2.2 GPU calls were scored with touchstone
 0.1.0's `vcfeval`, a Rust port of RTG Tools 3.13's, on the same split, regions and
 stratifications as `score2.sh`. On the earlier HiFi GPU calls it wrote the same stratified table
 and the same TP, FP and FN records as RTG, in 26 s and 4.4 GB at most against RTG's 16 GB heap.

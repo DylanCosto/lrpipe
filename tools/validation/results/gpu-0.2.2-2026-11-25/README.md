@@ -42,7 +42,7 @@ stratification, as `score2.sh` writes them. Overall F1:
 
 ## Scoring with touchstone
 
-[`score_ts.sh`](score_ts.sh) is `score2.sh` with [touchstone](https://github.com/DylanCosto/touchstone)
+[`score_ts.sh`](score_ts.sh) is `score2.sh` with touchstone
 0.1.0's `vcfeval` (`-T 8`), a Rust port of RTG Tools 3.13's, in place of RTG's. The split into
 SNPs and other variants is still RTG's `vcffilter`, with a 2 GB heap. As a check, touchstone
 scored the 2026-11-03 HiFi GPU calls: the stratified table, and the TP, FP, FN and
